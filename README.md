@@ -21,7 +21,7 @@ http://admin.xiaole.website （默认账号密码admin）
 > 因初学技术有限，存在大量冗余代码与不合理地方，由于时间原因未完成全部功能，在后期学习中慢慢改进完成，
 
 #### 目录结构
-.
+> .
 ├── .DS_Store
 ├── SupSystem.iml
 ├── src
