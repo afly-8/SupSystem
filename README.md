@@ -205,9 +205,8 @@ http://admin.xiaole.website （默认账号密码admin）
 -  修改密码 （密码修改）--完成
 
 # 项目截图
-
-![img](file:////private/var/folders/gg/bp9g44nn6zv518ks_dm6qp940000gn/T/com.kingsoft.wpsoffice.mac/wps-xiaole/ksohtml/wpsuFJTG2.jpg)
-
-![img](file:////private/var/folders/gg/bp9g44nn6zv518ks_dm6qp940000gn/T/com.kingsoft.wpsoffice.mac/wps-xiaole/ksohtml/wpsglJCkX.jpg)
-
-![img](file:////private/var/folders/gg/bp9g44nn6zv518ks_dm6qp940000gn/T/com.kingsoft.wpsoffice.mac/wps-xiaole/ksohtml/wpsayQBO7.jpg)
+![输入图片说明](%E9%A1%B9%E7%9B%AE%E6%88%AA%E5%9B%BE/1821639230290_.pic.jpg)
+![输入图片说明](%E9%A1%B9%E7%9B%AE%E6%88%AA%E5%9B%BE/1831639230358_.pic.jpg)
+![输入图片说明](%E9%A1%B9%E7%9B%AE%E6%88%AA%E5%9B%BE/1841639230388_.pic.jpg)
+![输入图片说明](%E9%A1%B9%E7%9B%AE%E6%88%AA%E5%9B%BE/1911639309671_.pic.jpg)
+![输入图片说明](%E9%A1%B9%E7%9B%AE%E6%88%AA%E5%9B%BE/1881639230506_.pic.jpg)
