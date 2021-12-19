@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="lib">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/../idea/xiaole_yootk/yootk/web/WEB-INF/lib" />
+      <root url="file://$USER_HOME$/tomcat/lib" />
+      <root url="jar://$PROJECT_DIR$/SupSystem/web/WEB-INF/lib/fastjson-1.1.34.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file://$USER_HOME$/tomcat/lib" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/../idea/xiaole_yootk/yootk/web/WEB-INF/lib" recursive="false" />
+  </library>
+</component>

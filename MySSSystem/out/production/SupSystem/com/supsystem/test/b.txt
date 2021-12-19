@@ -1,0 +1,3614 @@
+html;charset=UTF-8" language="java" %>
+" + request.getServerName() + ":" + request.getServerPort()
+";
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <meta charset="utf-8">
+    <base href="<%=bashPath%>">
+title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="惠兴超市" name="description">
+    <meta content="惠兴超市" name="keywords">
+    <meta content="肖乐-张倩倩" name="author">
+css">
+css">
+    <!-- JAVASCRIPT -->
+script>
+    <!-- 自定义js -->
+script>
+script>
+    <style>
+        .logo-lg img{
+            width:110px;
+            height:auto;
+        }
+style>
+<body data-sidebar="dark">
+login.css">
+<div class="login-page">
+    <div class="page-header">
+        <div class="wrapper clear">
+            <div class="logo fl">
+">
+a>
+div>
+            <div class="page-header-info frr">
+a>
+                <ul class="page-header-c">
+                    <li>
+li>
+                    <li>
+li>
+ul>
+div>
+div>
+div>
+    <div class="page-content">
+        <div class="wrapper">
+            <div class="login-wrap">
+                <div class="left">
+                    <div class="banner-main ">
+                        <div class="banner-main-img">
+                            <ul>
+                                <li style="display: block;">
+h2>
+                                    <div class="desc">
+div>
+div>
+div>
+logoa.png">
+div>
+li>
+ul>
+div>
+div>
+div>
+                <div class="right">
+                    <div class="login-item">
+                        <div class="login" data-type="account">
+                            <div class="login-tab">
+                                <ul class=" nav" role="tablist">
+                                    <li class="">
+a>
+li>
+ul>
+div>
+                            <div class="login-content">
+                                <div class="tab-content">    <div id="phone" class="tab-pane login-form  active" role="tabpanel">
+                                        <ul>
+                                            <!-- 登陆输入框  -->
+                                            <li>
+li>
+li>
+                                            <li >
+                                                <!-- 密码输入框 -->
+li>
+                                            <li style="margin-bottom: 20px;">
+                                                <!-- 验证码输入框 -->
+li>
+                                            <div style="float: right;" class="label-text">
+                                                <button type="button" style="width: 150px; height: 42px; margin-top: -15px; border: 0ch;" class="">
+canvas>
+button>
+div>
+li>
+                                            <li>
+button>
+li>
+ul>
+div>
+div>
+div>
+div>
+div>
+div>
+div>
+div>
+<div class="page-footer">
+    <div class="wrapper">
+beian.miit.gov.cn">
+p>
+div>
+登陆 ajax验证
+    $(function(){
+        $("#login").click(function(){
+取值
+            var password = $("#phonePwdInp1").val();
+ 将输入的内容转为大写，可通过这步进行大小写验证
+            var val = $(".input-val").val().toLowerCase();
+ 获取生成验证码值
+            var num = $('#canvas').attr('data-code');
+            console.log(val)
+            console.log(num)
+            if (val == '' || !username || !password) {
+                Dreamer.error("请输入输入完整信息！", 1000)
+            } else if (val != num) {
+                Dreamer.error("验证码错误！请重新输入！", 1000)
+                code_draw();
+                $(".input-val").val('');
+            } else {
+                $(".input-val").val('');
+var param = "username="+username+"&password="+password;
+                var param = {"username":username,"password":password};
+CallLoginServlet",param,function(result){
+                    if(result=="true"){
+                        Dreamer.success("登陆成功！欢迎您使用惠兴超市管理系统" , 1000);
+common.jsp";
+                    }else{
+                        Dreamer.error("用户名或者密码错误!", 2000);
+                    }
+                });
+            }
+        });
+    });
+  Created by IntelliJ IDEA.
+  User: xiaole
+10
+  Time: 11:09 上午
+  To change this template use File | Settings | File Templates.
+html;charset=UTF-8" language="java" %>
+" + request.getServerName() + ":" + request.getServerPort()
+";
+ 现在存在有session属性
+<!DOCTYPE html>
+>--%>
+    <base href="<%=bashPath%>">
+    <meta charset="utf-8">
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+script>
+script>
+    <!-- Bootstrap CSS-->
+    <!-- 新 Bootstrap4 核心 CSS 文件 -->
+bootstrap.min.css">
+    <!-- bootstrap.bundle.min.js 用于弹窗、提示、下拉菜单，包含了 popper.min.js -->
+script>
+    <!-- 最新的 Bootstrap4 核心 JavaScript 文件 -->
+script>
+    <!-- Font Awesome CSS-->
+all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <!-- Google fonts - Popppins for copy-->
+css?family=Poppins:300,400,800">
+    <!-- orion icons-->
+orionicons.css">
+    <!-- theme stylesheet-->
+css" id="css">
+    <!-- Custom stylesheet - for your changes-->
+custom.css">
+    <!-- Favicon-->
+    <%--    定义js--%>
+script>
+style.css">
+script>
+    $(document).ready( function (){
+        $("#toggle--daynight").click(function () {
+            $.get(
+",
+            function (res) {
+                if (res.length>0) {
+                    Dreamer.success("随机一句："+res + "！" , 5000);
+                } else {
+                    Dreamer.erro("接口请求失败！" , 3000);
+                }
+            })
+        })
+    })
+<!-- navbar-->
+<header class="header">
+    <nav class="navbar navbar-expand-lg px-4 py-2 bg-white shadow" style="position:fixed;z-index: 10;width: 100%">
+logoa.png">
+a>
+        <ul class="ml-auto d-flex align-items-center list-unstyled mb-0">
+li>
+            <!-- 获取用户名 -->
+li>
+            <li class="nav-item dropdown ml-auto">
+example.com" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">
+avatar-5.jpg"}" alt="Jason Doe" style="max-width: 2.5rem;" class="img-fluid rounded-circle shadow">
+a>
+                <div aria-labelledby="userInfo" class="dropdown-menu">
+                    <a href="#" class="dropdown-item">
+a>
+a>
+div>
+li>
+            <li>
+                <div class="toggle toggle--daynight">
+                    <input name="change" type="checkbox" id="toggle--daynight" class="toggle--checkbox" value="1">
+                    <label class="toggle--btn" for="toggle--daynight">
+span>
+label>
+div>
+li>
+ul>
+nav>
+    <div class="d-flex align-items-stretch" >
+            <div id="sidebar" class="sidebar py-3" style="margin-top: 73px">
+div>
+div>
+                <ul class="sidebar-menu list-unstyled">
+li>
+li>
+li>
+li>
+li>
+li>
+ul>
+div>
+        <div class="page-holder w-100 d-flex flex-wrap">
+            <div class="container-fluid px-xl-5">
+                <section class="py-5">
+                    <div class="row">
+ 现在没有登录过
+login.jsp");
+    }
+  Created by IntelliJ IDEA.
+  User: xiaole
+11
+  Time: 9:20 下午
+  To change this template use File | Settings | File Templates.
+html;charset=UTF-8" language="java" %>
+core" prefix="c" %>
+    response.setCharacterEncoding("utf-8");
+ 现在存在有session属性
+title>
+    <style>
+style>
+>
+<div class="col-lg-12 mb-4" style="margin: 0 auto;">
+    <div class="card">
+        <div class="card-header">
+h4>
+CallSearchSupplierServlet" method="get">
+                <div class="input-group" style="width: 500px; float: left">
+                    <input type="text" placeholder="搜索联系人关键字" name="keyword" class="form-control" value="${keyword}">
+                    <div class="input-group-append">
+button>
+div>
+div>
+form>
+            <div class="input-group-append" style="float: right;">
+button>
+div>
+div>
+        <c:if test="${not empty sList}">
+        <div class="card-body">
+            <table class="table table-striped table-hover card-text" style="text-align: center">
+                <thead>
+                <tr>
+th>
+th>
+th>
+th>
+th>
+th>
+tr>
+thead>
+                <tbody>
+                <c:forEach items="${sList}" var="supplier" varStatus="vs">
+                    <tr>
+th>
+td>
+td>
+td>
+td>
+                        <td>
+button>
+button>
+td>
+tr>
+c:forEach>
+tbody>
+table>
+div>
+        <c:if test="${allRecorders>0 && allRecorders !=1}">
+            <ul class="pagination" style="color: green ;margin-left: 50px">
+li>
+8 + 1}" varStatus="vs">
+li>
+c:forEach>
+li>
+ul>
+c:if>
+c:if>
+        <c:if test="${empty sList}">
+span>
+c:if>
+div>
+div>
+    function getUrlParam(name) {
+构造一个含有目标参数的正则表达式对象
+匹配目标参数
+返回参数值
+    }
+ 分页显示
+    var page = parseInt(getUrlParam('currentPage'));
+CallSearchSupplierServlet?currentPage=" + (page + 1).toString() + "&searchType=${searchType}&keyword=${keyword}";
+CallSearchSupplierServlet?currentPage=" + (page - 1).toString() + "&searchType=${searchType}&keyword=${keyword}";
+    $(function (){
+        if (page <= 1) {
+            $("#last_li").addClass("disabled");
+            $("#next_li").click(function (){
+                window.location.href = newAddHref;
+            })
+        } else if (!page) {
+            $("#last_li").addClass("disabled");
+            $("#next_li").addClass("disabled");
+8}) {
+            $("#next_li").addClass("disabled");
+            $("#last_li").click(function (){
+                window.location.href = newVerbHref;
+            })
+        } else {
+            $("#last_li").click(function (){
+                window.location.href = newVerbHref;
+            })
+            $("#next_li").click(function (){
+                window.location.href = newAddHref;
+            })
+        }
+    });
+>
+ 现在没有登录过
+login.jsp");
+    }
+  Created by IntelliJ IDEA.
+  User: xiaole
+10
+  Time: 3:25 下午
+  To change this template use File | Settings | File Templates.
+html;charset=UTF-8" language="java" %>
+html;charset=UTF-8" language="java" %>
+ 现在存在有session属性
+title>
+>
+<div class="col-lg-9 mb-5" style="margin: 80px auto;">
+    <div class="card">
+        <div class="card-header">
+h3>
+div>
+        <div class="card-body">
+p>
+                <div class="form-group row" id="inputOldPwd">
+label>
+                    <div class="col-md-7">
+                        <input id="oldPwd" type="password" placeholder="请输入原密码" class="form-control form-control-success">
+small>
+div>
+div>
+                <div class="form-group row" id="inputNewPwd">
+label>
+                    <div class="col-md-7">
+                        <input id="newPwd" type="password" placeholder="请输入新密码" class="form-control form-control-warning">
+small>
+div>
+div>
+                <div class="form-group row" id="inputRPwd">
+label>
+                    <div class="col-md-7">
+                        <input id="rPwd" type="password" placeholder="请输入新密码" class="form-control form-control-warning">
+small>
+div>
+div>
+                <div class="form-group row">
+                    <div class="col-md-6 ml-auto">
+button>
+div>
+                    <div class="col-md-4 ml-auto">
+button>
+div>
+div>
+div>
+div>
+javascript">
+    $(function(){
+        $("#reset").click(function (){
+            $("input[type='password']").val('');
+        })
+        function checkOldPwd(){
+            var oldPwd = $("#oldPwd").val();
+            var $oldText = $("#oldText");
+            var $inputOldPwd = $("#inputOldPwd");
+            if( oldPwd=="" ){
+                $oldText.html("密码不能为空");
+                $inputOldPwd.addClass("has-error");
+                return false;
+            }else if(oldPwd.length<6||oldPwd.length>12){
+                $oldText.html("密码必须在6-12位之间");
+                $inputOldPwd.addClass("has-error");
+                return false;
+            }else{
+                $oldText.html("");
+                $inputOldPwd.removeClass("has-error");
+                $inputOldPwd.addClass("has-success");
+                return true;
+            }
+        }
+        $("#oldPwd").blur(function (){
+            checkOldPwd();
+        })
+        function checkNewPwd(){
+            var newPwd = $("#newPwd").val();
+            var $newText = $("#newText");
+            var $inputNewPwd = $("#inputNewPwd");
+            if(newPwd==""){
+                $newText.html("密码不能为空");
+                $inputNewPwd.addClass("has-error");
+                return false;
+            }else if(newPwd.length<6||newPwd.length>12){
+                $newText.html("密码必须在6-12位之间");
+                $inputNewPwd.addClass("has-error");
+                return false;
+            }else{
+                $newText.html("");
+                $inputNewPwd.removeClass("has-error");
+                $inputNewPwd.addClass("has-success");
+                return true;
+            }
+        }
+        $("#newPwd").blur(function (){
+            checkNewPwd();
+        })
+        function checkRPwd(){
+            var rPwd = $("#rPwd").val();
+            var newPwd = $("#newPwd").val();
+            var $rTest = $("#rTest");
+            var $inputRPwd = $("#inputRPwd");
+            if(rPwd==""){
+                $rTest.html("密码不能为空");
+                $inputRPwd.addClass("has-error");
+                return false;
+            }else if(rPwd.length<6||rPwd.length>12){
+                $rTest.html("密码必须在6-12位之间");
+                $inputRPwd.addClass("has-error");
+                return false;
+            }else if(rPwd!=newPwd){
+                $rTest.html("两次密码输入不一致");
+                $inputRPwd.addClass("has-error");
+                return false;
+            }else{
+                $rTest.html("");
+                $inputRPwd.removeClass("has-error");
+                $inputRPwd.addClass("has-success");
+                return true;
+            }
+        }
+        $("#rPwd").blur(function (){
+            checkRPwd();
+        })
+        $("#updatePwd").click(function (){
+            var newPwd = $("#newPwd").val();
+            if(checkOldPwd()&&checkNewPwd()&&checkRPwd()){
+CallDoEditUserServlet",{
+                    "newPwd":newPwd
+                },
+                function (result) {
+                    if (result == "true") {
+                        Dreamer.success("修改成功！", 2000);
+logout.jsp";
+                    } else {
+                        Dreamer.error("修改失败！", 2000);
+                    }
+                })
+            }
+        })
+    })
+>
+ 现在没有登录过
+login.jsp");
+    }
+  Created by IntelliJ IDEA.
+  User: xiaole
+11
+  Time: 12:06 上午
+  To change this template use File | Settings | File Templates.
+html;charset=UTF-8" language="java" %>
+html;charset=UTF-8" language="java" %>
+core" prefix="c" %>
+ 现在存在有session属性
+title>
+>
+<div class="col-lg-12 mb-4" style="margin: 0 auto;">
+    <div class="card">
+        <div class="card-header">
+h4>
+            <div class="input-group" style="width: 500px; float: left">
+                <%--                    关键字搜索--%>
+                <input type="text" placeholder="搜索关键字" class="form-control">
+button>
+div>
+div>
+            <div class="input-group-append" style="float: right;">
+button>
+div>
+div>
+        <div class="card-body">
+            <table class="table table-striped table-hover card-text" style="text-align: center">
+                <thead>
+                <tr>
+th>
+th>
+th>
+th>
+th>
+th>
+th>
+th>
+tr>
+thead>
+                <tbody>
+                <c:forEach items="${uList}" var="users" varStatus="vs">
+                    <tr>
+th>
+td>
+td>
+td>
+td>
+td>
+td>
+                        <td>
+button>
+button>
+td>
+tr>
+c:forEach>
+tbody>
+table>
+div>
+        <ul class="pagination" style="color: green ;margin-left: 50px">
+li>
+li>
+li>
+li>
+li>
+ul>
+div>
+div>
+>
+ 现在没有登录过
+login.jsp");
+    }
+  Created by IntelliJ IDEA.
+  User: xiaole
+10
+  Time: 9:26 上午
+  To change this template use File | Settings | File Templates.
+html;charset=UTF-8" language="java" %>
+ 现在存在有session属性
+title>
+>
+illustration.svg">
+>
+ 现在没有登录过
+login.jsp");
+    }
+  Created by IntelliJ IDEA.
+  User: xiaole
+10
+  Time: 10:44 上午
+  To change this template use File | Settings | File Templates.
+html;charset=UTF-8" language="java" %>
+" + request.getServerName() + ":" + request.getServerPort()
+";
+<base href="<%=bashPath%>">
+<meta charset="utf-8">
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+script>
+script>
+<!-- Bootstrap CSS-->
+<!-- 新 Bootstrap4 核心 CSS 文件 -->
+bootstrap.min.css">
+<!-- bootstrap.bundle.min.js 用于弹窗、提示、下拉菜单，包含了 popper.min.js -->
+script>
+<!-- 最新的 Bootstrap4 核心 JavaScript 文件 -->
+script>
+<!-- Font Awesome CSS-->
+all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+<!-- Google fonts - Popppins for copy-->
+css?family=Poppins:300,400,800">
+<!-- orion icons-->
+orionicons.css">
+<!-- theme stylesheet-->
+style.green.css" id="theme-stylesheet">
+<!-- Custom stylesheet - for your changes-->
+custom.css">
+<!-- Favicon-->
+  Created by IntelliJ IDEA.
+  User: xiaole
+11
+  Time: 9:23 下午
+  To change this template use File | Settings | File Templates.
+html;charset=UTF-8" language="java" %>
+core" prefix="c" %>
+    response.setCharacterEncoding("utf-8");
+ 现在存在有session属性
+title>
+    <style>
+style>
+>
+<div class="col-lg-12 mb-4" style="margin: 0 auto;">
+    <div class="card">
+        <div class="card-header">
+h4>
+CallSearchInventoryServlet" method="get">
+                <div class="input-group" style="width: 500px; float: left">
+                    <input type="text" placeholder="搜索商品名称关键字" name="keyword" class="form-control" value="${keyword}">
+                    <div class="input-group-append">
+button>
+div>
+div>
+form>
+            <div class="input-group-append" style="float: right;">
+button>
+div>
+div>
+        <c:if test="${not empty iList}">
+        <div class="card-body">
+            <table class="table table-striped table-hover card-text" style="text-align: center">
+                <thead>
+                <tr>
+th>
+th>
+th>
+th>
+th>
+th>
+tr>
+thead>
+                <tbody>
+                    <c:forEach items="${iList}" var="inventory" varStatus="vs">
+                        <tr>
+th>
+td>
+td>
+td>
+td>
+                            <td>
+button>
+button>
+td>
+tr>
+c:forEach>
+tbody>
+table>
+div>
+        <c:if test="${allRecorders>0 && allRecorders !=1}">
+            <ul class="pagination" style="color: green ;margin-left: 50px">
+li>
+8 + 1}" varStatus="vs">
+li>
+c:forEach>
+li>
+ul>
+c:if>
+c:if>
+        <c:if test="${empty iList}">
+span>
+c:if>
+div>
+div>
+<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" style="margin-top: 100px; min-width: 300px">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+button>
+div>
+            <div class="modal-body">
+                <div class="input-group" style="width: 400px; float: left">
+button>
+入库数量（件）">
+button>
+div>
+div>
+            <div class="modal-footer">
+button>
+button>
+button>--%>
+div>
+div>
+div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="margin-top: 100px; min-width: 300px">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+button>
+div>
+            <div class="modal-body">
+                <div class="form-group">
+label>
+                    <input type="text" class="form-control" id="gid" placeholder="商品ID">
+div>
+                <div class="form-group">
+label>
+                    <input type="text" class="form-control" id="gname" placeholder="供应商ID">
+div>
+                <div class="form-group">
+label>
+                    <input type="text" class="form-control" id="gtype" placeholder="商品进价">
+div>
+                <div class="form-group">
+label>
+                    <input type="text" class="form-control" id="inprice" placeholder="数量">
+div>
+div>
+            <div class="modal-footer">
+button>
+button>
+button>--%>
+div>
+div>
+div>
+    <%--    定义请求链接--%>
+<%--    出库--%>
+    function div_data(data) {
+        var flag = confirm("您确定出库吗？")
+        $("#myModalLabel1").text("出库");
+        $('#myModal1').modal({backdrop: 'static'});
+ if (flag) {
+     $.get( "", {
+     },function (res) {
+         if (res == "true") {
+             alert("出库成功！")
+             window.location.reload();
+         } else {
+             alert("出库失败！")
+         }
+     })
+ }
+    }
+    var div_el = document.querySelector(".modal-body");
+ 入库
+    var inputs = div_el.querySelectorAll('input');
+    function add_data(data){
+        $("#myModalLabel1").text("入库");
+        $('#myModal1').modal({backdrop: 'static'});
+    }
+    $('#btn_submit1').click(function(){
+        var gid = $("#gid").val();
+        var gname = $("#gname").val();
+        var gtype = $("#gtype").val();
+        var inprice = $("#inprice").val();
+        var outprice = $("#outprice").val();
+        var status = $("#status").val();
+        for (let i = 0; i < inputs.length; i++) {
+            if (inputs[i].value.length==0) {
+                alert("信息不全！")
+            }
+        }
+CallDoEditGoodsServlet", {
+            "gid":gid,
+            "gname":gname,
+            "gtype":gtype,
+            "inprice":inprice,
+            "outprice":outprice,
+            "status":status
+        },
+            function (res) {
+                if (res == "true") {
+                    alert("修改成功!")
+                    window.location.reload();
+                } else {
+                    alert("修改失败！")
+                }
+            })
+    })
+    function getUrlParam(name) {
+构造一个含有目标参数的正则表达式对象
+匹配目标参数
+返回参数值
+    }
+    $(function(){
+        $("#btn_add").click(function () {
+            for (let i = 0; i < inputs.length; i++) {
+                inputs[i].value = "";
+            }
+            $("#myModalLabel").text("添加");
+            $('#myModal').modal({backdrop: 'static'});
+        });
+        $(".search-sub").click(function(){
+取值
+            if (search == '') {
+                alert('请输入输入关键字！');
+            }
+        });
+ 这个里面 做 一个点击绑定一个点击事件 绑定了点击事件 然后 发送ajax
+        $('#btn_submit2').click(function(){
+            var gid = $("#gid").val();
+            var gname = $("#gname").val();
+            var gtype = $("#gtype").val();
+            var inprice = $("#inprice").val();
+            var outprice = $("#outprice").val();
+            var status = $("#status").val();
+CallDoAddGoodsServlet", {
+                "gid":gid,
+                "gname":gname,
+                "gtype":gtype,
+                "inprice":inprice,
+                "outprice":outprice,
+                "status":status
+            },
+                function (res) {
+                    if (res == "true") {
+                        alert("添加成功！")
+                        window.location.reload();
+                    } else if (res == "重复添加") {
+                        alert("添加失败，请勿重复添加！")
+                    }
+                    else {
+                        alert("数据信息不全！")
+                    }
+                })
+        })
+    })
+    var page = parseInt(getUrlParam('currentPage'));
+CallSearchInventoryServlet?currentPage=" + (page + 1).toString() + "&searchType=${searchType}&keyword=${keyword}";
+CallSearchInventoryServlet?currentPage=" + (page - 1).toString() + "&searchType=${searchType}&keyword=${keyword}";
+    $(function (){
+        if (page <= 1) {
+            $("#last_li").addClass("disabled");
+            $("#next_li").click(function (){
+                window.location.href = newAddHref;
+            })
+        } else if (!page) {
+            $("#last_li").addClass("disabled");
+            $("#next_li").addClass("disabled");
+8}) {
+            $("#next_li").addClass("disabled");
+            $("#last_li").click(function (){
+                window.location.href = newVerbHref;
+            })
+        } else {
+            $("#last_li").click(function (){
+                window.location.href = newVerbHref;
+            })
+            $("#next_li").click(function (){
+                window.location.href = newAddHref;
+            })
+        }
+    });
+>
+ 现在没有登录过
+login.jsp");
+    }
+  Created by IntelliJ IDEA.
+  User: xiaole
+10
+  Time: 9:26 上午
+  To change this template use File | Settings | File Templates.
+html;charset=UTF-8" language="java" %>
+core" prefix="c" %>
+ 现在存在有session属性
+title>
+    <style>
+style>
+>
+<div class="col-lg-12 mb-4" style="margin: 0 auto">
+    <div class="card">
+        <div class="card-header">
+h4>
+CallSearchGoodsServlet" method="get">
+                <div class="input-group" style="width: 500px; float: left">
+                    <select name="searchType" class="form-control" style="background: green ; color: white;max-width: 110px;">
+option>
+option>
+select>
+                <%--关键字搜索--%>
+                    <input type="text" placeholder="搜索关键字" name="keyword" class="form-control" value="${keyword}">
+                    <div class="input-group-append">
+button>
+div>
+div>
+form>
+            <div class="input-group-append" style="float: right;">
+button>
+div>
+div>
+        <c:if test="${not empty gList}">
+            <div class="card-body">
+                <table class="table table-striped table-hover card-text" style="text-align: center">
+                    <thead>
+                    <tr>
+th>
+th>
+th>
+th>
+th>
+th>
+th>
+tr>
+thead>
+                    <tbody>
+                    <c:forEach items="${gList}" var="goods" varStatus="vs">
+                        <tr>
+th>
+td>
+td>
+td>
+td>
+td>
+                            <td>
+button>
+button>
+td>
+tr>
+c:forEach>
+tbody>
+table>
+div>
+            <c:if test="${allRecorders>0 && allRecorders !=1}">
+                <ul class="pagination" style="color: green ;margin-left: 50px">
+li>
+8 + 1}" varStatus="vs">
+li>
+c:forEach>
+li>
+ul>
+c:if>
+c:if>
+        <c:if test="${empty gList}">
+span>
+c:if>
+div>
+div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="margin-top: 100px; min-width: 300px">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+button>
+div>
+            <div class="modal-body">
+                <div class="form-group">
+label>
+                    <input type="text" class="form-control" id="gid" placeholder="商品ID">
+div>
+                <div class="form-group">
+label>
+                    <input type="text" class="form-control" id="gname" placeholder="商品名称">
+div>
+                <div class="form-group">
+label>
+                    <input type="text" class="form-control" id="gtype" placeholder="商品类型">
+div>
+                <div class="form-group">
+label>
+                    <input type="text" class="form-control" id="inprice" placeholder="商品进价">
+div>
+                <div class="form-group">
+label>
+                    <input type="text" class="form-control" id="outprice" placeholder="商品出价">
+div>
+                <div class="form-group">
+                    <select id="status" name="searchType" class="form-control" style="background: green ; color: white;max-width: 210px;">
+option>
+option>
+select>
+div>
+div>
+            <div class="modal-footer">
+button>
+button>
+button>
+div>
+div>
+div>
+<%--    定义请求链接--%>
+    function del_data(data) {
+        var flag = confirm("您确定删除吗？")
+        if (flag) {
+CallDoDelGoodsServlet", {
+                "gid":data,
+            },function (res) {
+                if (res == "true") {
+                    Dreamer.success("成功删除1条数据！",1000,function(){
+                        window.location.reload();
+                    })
+                } else {
+                    Dreamer.error("删除失败！", 2000)
+                }
+            })
+        }
+    }
+    var div_el = document.querySelector(".modal-body");
+    var inputs = div_el.querySelectorAll('input');
+    function edit_data(data){
+        $("#btn_submit2").hide()
+        $("#btn_submit1").show()
+        var arr = data.split(":");
+        for (let i = 0; i < arr.length-1; i++) {
+            inputs[i].value = arr[i];
+        }
+        $("#myModalLabel").text("编辑");
+        $('#myModal').modal({backdrop: 'static'});
+    }
+    $('#btn_submit1').click(function(){
+        var gid = $("#gid").val();
+        var gname = $("#gname").val();
+        var gtype = $("#gtype").val();
+        var inprice = $("#inprice").val();
+        var outprice = $("#outprice").val();
+        var status = $("#status").val();
+        for (let i = 0; i < inputs.length; i++) {
+            if (inputs[i].value.length==0) {
+                Dreamer.error("信息不全！", 2000)
+            }
+        }
+CallDoEditGoodsServlet", {
+            "gid":gid,
+            "gname":gname,
+            "gtype":gtype,
+            "inprice":inprice,
+            "outprice":outprice,
+            "status":status
+        },
+        function (res) {
+            if (res == "true") {
+                Dreamer.success("成功修改1条数据！",1000,function(){
+                    window.location.reload();
+                })
+            } else {
+                Dreamer.error("修改失败！", 2000)
+            }
+        })
+    })
+    function getUrlParam(name) {
+构造一个含有目标参数的正则表达式对象
+匹配目标参数
+返回参数值
+    }
+    $(function(){
+        $("#btn_add").click(function () {
+            for (let i = 0; i < inputs.length; i++) {
+                inputs[i].value = "";
+            }
+            $("#btn_submit1").hide()
+            $("#btn_submit2").show()
+            $("#myModalLabel").text("添加");
+            $('#myModal').modal({backdrop: 'static'});
+        });
+        $(".search-sub").click(function(){
+取值
+            if (search == '') {
+                Dreamer.error("请输入输入关键字！", 2000)
+            }
+        });
+ 这个里面 做 一个点击绑定一个点击事件 绑定了点击事件 然后 发送ajax
+        $('#btn_submit2').click(function(){
+            var gid = $("#gid").val();
+            var gname = $("#gname").val();
+            var gtype = $("#gtype").val();
+            var inprice = $("#inprice").val();
+            var outprice = $("#outprice").val();
+            var status = $("#status").val();
+CallDoAddGoodsServlet", {
+                    "gid":gid,
+                    "gname":gname,
+                    "gtype":gtype,
+                    "inprice":inprice,
+                    "outprice":outprice,
+                    "status":status
+                },
+                function (res) {
+                if (res == "true") {
+                    Dreamer.success("成功添加1条数据！",1000,function(){
+                        window.location.reload();
+                    })
+                } else if (res == "重复添加") {
+                    Dreamer.error("添加失败，请勿重复添加！", 1000)
+                }
+                else {
+                    Dreamer.error("数据信息不全！", 1000)
+                }
+            })
+        })
+    })
+    var page = parseInt(getUrlParam('currentPage'));
+CallSearchGoodsServlet?currentPage=" + (page + 1).toString() + "&searchType=${searchType}&keyword=${keyword}";
+CallSearchGoodsServlet?currentPage=" + (page - 1).toString() + "&searchType=${searchType}&keyword=${keyword}";
+    $(function (){
+        if (page <= 1) {
+            $("#last_li").addClass("disabled");
+            $("#next_li").click(function (){
+                window.location.href = newAddHref;
+            })
+        } else if (!page) {
+            $("#last_li").addClass("disabled");
+            $("#next_li").addClass("disabled");
+8}) {
+            $("#next_li").addClass("disabled");
+            $("#last_li").click(function (){
+                window.location.href = newVerbHref;
+            })
+        } else {
+            $("#last_li").click(function (){
+                window.location.href = newVerbHref;
+            })
+            $("#next_li").click(function (){
+                window.location.href = newAddHref;
+            })
+        }
+    });
+>
+ 没有登录过,跳转登陆页面
+login.jsp");
+    }
+  Created by IntelliJ IDEA.
+  User: xiaole
+10
+  Time: 11:09 上午
+  To change this template use File | Settings | File Templates.
+  Created by IntelliJ IDEA.
+  User: xiaole
+7
+  Time: 12:41 上午
+  To change this template use File | Settings | File Templates.
+html;charset=UTF-8" language="java" %>
+ 现在存在有session属性
+<footer class="footer bg-white shadow align-self-end py-3 px-xl-5 w-100">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 text-center text-md-left text-primary">
+p>
+div>
+            <div class="col-md-11 text-center text-md-right text-gray-400">
+                <p style="text-align: center; color: #4b666d8f;">Copyright 2021 © .HUIXING FOOD GROUP. 陕西惠兴食品有限公司版权所有
+p>
+div>
+div>
+div>
+script>
+script>
+ 现在没有登录过
+login.jsp");
+    }
+  Created by IntelliJ IDEA.
+  User: xiaole
+9
+  Time: 11:10 下午
+  To change this template use File | Settings | File Templates.
+html;charset=UTF-8" language="java" %>
+<% request.getSession().invalidate();%>
+login.jsp");%>
+html;charset=UTF-8" language="java" %>
+" + request.getServerName() + ":" + request.getServerPort()
+";
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <meta charset="utf-8">
+    <base href="<%=bashPath%>">
+title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="惠兴超市" name="description">
+    <meta content="惠兴超市" name="keywords">
+    <meta content="肖乐-张倩倩" name="author">
+css">
+css">
+    <!-- JAVASCRIPT -->
+script>
+    <!-- 自定义js -->
+script>
+script>
+    <style>
+        .logo-lg img{
+            width:110px;
+            height:auto;
+        }
+style>
+<body data-sidebar="dark">
+login.css">
+<div class="login-page">
+    <div class="page-header">
+        <div class="wrapper clear">
+            <div class="logo fl">
+">
+a>
+div>
+            <div class="page-header-info frr">
+a>
+                <ul class="page-header-c">
+                    <li>
+li>
+                    <li>
+li>
+ul>
+div>
+div>
+div>
+    <div class="page-content">
+        <div class="wrapper">
+            <div class="login-wrap">
+                <div class="left">
+                    <div class="banner-main ">
+                        <div class="banner-main-img">
+                            <ul>
+                                <li style="display: block;">
+h2>
+                                    <div class="desc">
+div>
+div>
+div>
+logoa.png">
+div>
+li>
+ul>
+div>
+div>
+div>
+                <div class="right">
+                    <div class="login-item">
+                        <div class="login" data-type="account">
+                            <div class="login-tab">
+                                <ul class=" nav" role="tablist">
+                                    <li class="">
+a>
+li>
+ul>
+div>
+                            <div class="login-content">
+                                <div class="tab-content">    <div id="phone" class="tab-pane login-form  active" role="tabpanel">
+                                        <ul>
+                                            <!-- 登陆输入框  -->
+                                            <li>
+li>
+li>
+                                            <li >
+                                                <!-- 密码输入框 -->
+li>
+                                            <li style="margin-bottom: 20px;">
+                                                <!-- 验证码输入框 -->
+li>
+                                            <div style="float: right;" class="label-text">
+                                                <button type="button" style="width: 150px; height: 42px; margin-top: -15px; border: 0ch;" class="">
+canvas>
+button>
+div>
+li>
+                                            <li>
+button>
+li>
+ul>
+div>
+div>
+div>
+div>
+div>
+div>
+div>
+div>
+<div class="page-footer">
+    <div class="wrapper">
+beian.miit.gov.cn">
+p>
+div>
+登陆 ajax验证
+    $(function(){
+        $("#login").click(function(){
+取值
+            var password = $("#phonePwdInp1").val();
+ 将输入的内容转为大写，可通过这步进行大小写验证
+            var val = $(".input-val").val().toLowerCase();
+ 获取生成验证码值
+            var num = $('#canvas').attr('data-code');
+            console.log(val)
+            console.log(num)
+            if (val == '' || !username || !password) {
+                Dreamer.error("请输入输入完整信息！", 1000)
+            } else if (val != num) {
+                Dreamer.error("验证码错误！请重新输入！", 1000)
+                code_draw();
+                $(".input-val").val('');
+            } else {
+                $(".input-val").val('');
+var param = "username="+username+"&password="+password;
+                var param = {"username":username,"password":password};
+CallLoginServlet",param,function(result){
+                    if(result=="true"){
+                        Dreamer.success("登陆成功！欢迎您使用惠兴超市管理系统" , 1000);
+common.jsp";
+                    }else{
+                        Dreamer.error("用户名或者密码错误!", 2000);
+                    }
+                });
+            }
+        });
+    });
+  Created by IntelliJ IDEA.
+  User: xiaole
+10
+  Time: 11:09 上午
+  To change this template use File | Settings | File Templates.
+html;charset=UTF-8" language="java" %>
+" + request.getServerName() + ":" + request.getServerPort()
+";
+ 现在存在有session属性
+<!DOCTYPE html>
+>--%>
+    <base href="<%=bashPath%>">
+    <meta charset="utf-8">
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+script>
+script>
+    <!-- Bootstrap CSS-->
+    <!-- 新 Bootstrap4 核心 CSS 文件 -->
+bootstrap.min.css">
+    <!-- bootstrap.bundle.min.js 用于弹窗、提示、下拉菜单，包含了 popper.min.js -->
+script>
+    <!-- 最新的 Bootstrap4 核心 JavaScript 文件 -->
+script>
+    <!-- Font Awesome CSS-->
+all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <!-- Google fonts - Popppins for copy-->
+css?family=Poppins:300,400,800">
+    <!-- orion icons-->
+orionicons.css">
+    <!-- theme stylesheet-->
+css" id="css">
+    <!-- Custom stylesheet - for your changes-->
+custom.css">
+    <!-- Favicon-->
+    <%--    定义js--%>
+script>
+style.css">
+script>
+    $(document).ready( function (){
+        $("#toggle--daynight").click(function () {
+            $.get(
+",
+            function (res) {
+                if (res.length>0) {
+                    Dreamer.success("随机一句："+res + "！" , 5000);
+                } else {
+                    Dreamer.erro("接口请求失败！" , 3000);
+                }
+            })
+        })
+    })
+<!-- navbar-->
+<header class="header">
+    <nav class="navbar navbar-expand-lg px-4 py-2 bg-white shadow" style="position:fixed;z-index: 10;width: 100%">
+logoa.png">
+a>
+        <ul class="ml-auto d-flex align-items-center list-unstyled mb-0">
+li>
+            <!-- 获取用户名 -->
+li>
+            <li class="nav-item dropdown ml-auto">
+example.com" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">
+avatar-5.jpg"}" alt="Jason Doe" style="max-width: 2.5rem;" class="img-fluid rounded-circle shadow">
+a>
+                <div aria-labelledby="userInfo" class="dropdown-menu">
+                    <a href="#" class="dropdown-item">
+a>
+a>
+div>
+li>
+            <li>
+                <div class="toggle toggle--daynight">
+                    <input name="change" type="checkbox" id="toggle--daynight" class="toggle--checkbox" value="1">
+                    <label class="toggle--btn" for="toggle--daynight">
+span>
+label>
+div>
+li>
+ul>
+nav>
+    <div class="d-flex align-items-stretch" >
+            <div id="sidebar" class="sidebar py-3" style="margin-top: 73px">
+div>
+div>
+                <ul class="sidebar-menu list-unstyled">
+li>
+li>
+li>
+li>
+li>
+li>
+ul>
+div>
+        <div class="page-holder w-100 d-flex flex-wrap">
+            <div class="container-fluid px-xl-5">
+                <section class="py-5">
+                    <div class="row">
+ 现在没有登录过
+login.jsp");
+    }
+  Created by IntelliJ IDEA.
+  User: xiaole
+11
+  Time: 9:20 下午
+  To change this template use File | Settings | File Templates.
+html;charset=UTF-8" language="java" %>
+core" prefix="c" %>
+    response.setCharacterEncoding("utf-8");
+ 现在存在有session属性
+title>
+    <style>
+style>
+>
+<div class="col-lg-12 mb-4" style="margin: 0 auto;">
+    <div class="card">
+        <div class="card-header">
+h4>
+CallSearchSupplierServlet" method="get">
+                <div class="input-group" style="width: 500px; float: left">
+                    <input type="text" placeholder="搜索联系人关键字" name="keyword" class="form-control" value="${keyword}">
+                    <div class="input-group-append">
+button>
+div>
+div>
+form>
+            <div class="input-group-append" style="float: right;">
+button>
+div>
+div>
+        <c:if test="${not empty sList}">
+        <div class="card-body">
+            <table class="table table-striped table-hover card-text" style="text-align: center">
+                <thead>
+                <tr>
+th>
+th>
+th>
+th>
+th>
+th>
+tr>
+thead>
+                <tbody>
+                <c:forEach items="${sList}" var="supplier" varStatus="vs">
+                    <tr>
+th>
+td>
+td>
+td>
+td>
+                        <td>
+button>
+button>
+td>
+tr>
+c:forEach>
+tbody>
+table>
+div>
+        <c:if test="${allRecorders>0 && allRecorders !=1}">
+            <ul class="pagination" style="color: green ;margin-left: 50px">
+li>
+8 + 1}" varStatus="vs">
+li>
+c:forEach>
+li>
+ul>
+c:if>
+c:if>
+        <c:if test="${empty sList}">
+span>
+c:if>
+div>
+div>
+    function getUrlParam(name) {
+构造一个含有目标参数的正则表达式对象
+匹配目标参数
+返回参数值
+    }
+ 分页显示
+    var page = parseInt(getUrlParam('currentPage'));
+CallSearchSupplierServlet?currentPage=" + (page + 1).toString() + "&searchType=${searchType}&keyword=${keyword}";
+CallSearchSupplierServlet?currentPage=" + (page - 1).toString() + "&searchType=${searchType}&keyword=${keyword}";
+    $(function (){
+        if (page <= 1) {
+            $("#last_li").addClass("disabled");
+            $("#next_li").click(function (){
+                window.location.href = newAddHref;
+            })
+        } else if (!page) {
+            $("#last_li").addClass("disabled");
+            $("#next_li").addClass("disabled");
+8}) {
+            $("#next_li").addClass("disabled");
+            $("#last_li").click(function (){
+                window.location.href = newVerbHref;
+            })
+        } else {
+            $("#last_li").click(function (){
+                window.location.href = newVerbHref;
+            })
+            $("#next_li").click(function (){
+                window.location.href = newAddHref;
+            })
+        }
+    });
+>
+ 现在没有登录过
+login.jsp");
+    }
+  Created by IntelliJ IDEA.
+  User: xiaole
+10
+  Time: 3:25 下午
+  To change this template use File | Settings | File Templates.
+html;charset=UTF-8" language="java" %>
+html;charset=UTF-8" language="java" %>
+ 现在存在有session属性
+title>
+>
+<div class="col-lg-9 mb-5" style="margin: 80px auto;">
+    <div class="card">
+        <div class="card-header">
+h3>
+div>
+        <div class="card-body">
+p>
+                <div class="form-group row" id="inputOldPwd">
+label>
+                    <div class="col-md-7">
+                        <input id="oldPwd" type="password" placeholder="请输入原密码" class="form-control form-control-success">
+small>
+div>
+div>
+                <div class="form-group row" id="inputNewPwd">
+label>
+                    <div class="col-md-7">
+                        <input id="newPwd" type="password" placeholder="请输入新密码" class="form-control form-control-warning">
+small>
+div>
+div>
+                <div class="form-group row" id="inputRPwd">
+label>
+                    <div class="col-md-7">
+                        <input id="rPwd" type="password" placeholder="请输入新密码" class="form-control form-control-warning">
+small>
+div>
+div>
+                <div class="form-group row">
+                    <div class="col-md-6 ml-auto">
+button>
+div>
+                    <div class="col-md-4 ml-auto">
+button>
+div>
+div>
+div>
+div>
+javascript">
+    $(function(){
+        $("#reset").click(function (){
+            $("input[type='password']").val('');
+        })
+        function checkOldPwd(){
+            var oldPwd = $("#oldPwd").val();
+            var $oldText = $("#oldText");
+            var $inputOldPwd = $("#inputOldPwd");
+            if( oldPwd=="" ){
+                $oldText.html("密码不能为空");
+                $inputOldPwd.addClass("has-error");
+                return false;
+            }else if(oldPwd.length<6||oldPwd.length>12){
+                $oldText.html("密码必须在6-12位之间");
+                $inputOldPwd.addClass("has-error");
+                return false;
+            }else{
+                $oldText.html("");
+                $inputOldPwd.removeClass("has-error");
+                $inputOldPwd.addClass("has-success");
+                return true;
+            }
+        }
+        $("#oldPwd").blur(function (){
+            checkOldPwd();
+        })
+        function checkNewPwd(){
+            var newPwd = $("#newPwd").val();
+            var $newText = $("#newText");
+            var $inputNewPwd = $("#inputNewPwd");
+            if(newPwd==""){
+                $newText.html("密码不能为空");
+                $inputNewPwd.addClass("has-error");
+                return false;
+            }else if(newPwd.length<6||newPwd.length>12){
+                $newText.html("密码必须在6-12位之间");
+                $inputNewPwd.addClass("has-error");
+                return false;
+            }else{
+                $newText.html("");
+                $inputNewPwd.removeClass("has-error");
+                $inputNewPwd.addClass("has-success");
+                return true;
+            }
+        }
+        $("#newPwd").blur(function (){
+            checkNewPwd();
+        })
+        function checkRPwd(){
+            var rPwd = $("#rPwd").val();
+            var newPwd = $("#newPwd").val();
+            var $rTest = $("#rTest");
+            var $inputRPwd = $("#inputRPwd");
+            if(rPwd==""){
+                $rTest.html("密码不能为空");
+                $inputRPwd.addClass("has-error");
+                return false;
+            }else if(rPwd.length<6||rPwd.length>12){
+                $rTest.html("密码必须在6-12位之间");
+                $inputRPwd.addClass("has-error");
+                return false;
+            }else if(rPwd!=newPwd){
+                $rTest.html("两次密码输入不一致");
+                $inputRPwd.addClass("has-error");
+                return false;
+            }else{
+                $rTest.html("");
+                $inputRPwd.removeClass("has-error");
+                $inputRPwd.addClass("has-success");
+                return true;
+            }
+        }
+        $("#rPwd").blur(function (){
+            checkRPwd();
+        })
+        $("#updatePwd").click(function (){
+            var newPwd = $("#newPwd").val();
+            if(checkOldPwd()&&checkNewPwd()&&checkRPwd()){
+CallDoEditUserServlet",{
+                    "newPwd":newPwd
+                },
+                function (result) {
+                    if (result == "true") {
+                        Dreamer.success("修改成功！", 2000);
+logout.jsp";
+                    } else {
+                        Dreamer.error("修改失败！", 2000);
+                    }
+                })
+            }
+        })
+    })
+>
+ 现在没有登录过
+login.jsp");
+    }
+  Created by IntelliJ IDEA.
+  User: xiaole
+11
+  Time: 12:06 上午
+  To change this template use File | Settings | File Templates.
+html;charset=UTF-8" language="java" %>
+html;charset=UTF-8" language="java" %>
+core" prefix="c" %>
+ 现在存在有session属性
+title>
+>
+<div class="col-lg-12 mb-4" style="margin: 0 auto;">
+    <div class="card">
+        <div class="card-header">
+h4>
+            <div class="input-group" style="width: 500px; float: left">
+                <%--                    关键字搜索--%>
+                <input type="text" placeholder="搜索关键字" class="form-control">
+button>
+div>
+div>
+            <div class="input-group-append" style="float: right;">
+button>
+div>
+div>
+        <div class="card-body">
+            <table class="table table-striped table-hover card-text" style="text-align: center">
+                <thead>
+                <tr>
+th>
+th>
+th>
+th>
+th>
+th>
+th>
+th>
+tr>
+thead>
+                <tbody>
+                <c:forEach items="${uList}" var="users" varStatus="vs">
+                    <tr>
+th>
+td>
+td>
+td>
+td>
+td>
+td>
+                        <td>
+button>
+button>
+td>
+tr>
+c:forEach>
+tbody>
+table>
+div>
+        <ul class="pagination" style="color: green ;margin-left: 50px">
+li>
+li>
+li>
+li>
+li>
+ul>
+div>
+div>
+>
+ 现在没有登录过
+login.jsp");
+    }
+  Created by IntelliJ IDEA.
+  User: xiaole
+10
+  Time: 9:26 上午
+  To change this template use File | Settings | File Templates.
+html;charset=UTF-8" language="java" %>
+ 现在存在有session属性
+title>
+>
+illustration.svg">
+>
+ 现在没有登录过
+login.jsp");
+    }
+  Created by IntelliJ IDEA.
+  User: xiaole
+10
+  Time: 10:44 上午
+  To change this template use File | Settings | File Templates.
+html;charset=UTF-8" language="java" %>
+" + request.getServerName() + ":" + request.getServerPort()
+";
+<base href="<%=bashPath%>">
+<meta charset="utf-8">
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+script>
+script>
+<!-- Bootstrap CSS-->
+<!-- 新 Bootstrap4 核心 CSS 文件 -->
+bootstrap.min.css">
+<!-- bootstrap.bundle.min.js 用于弹窗、提示、下拉菜单，包含了 popper.min.js -->
+script>
+<!-- 最新的 Bootstrap4 核心 JavaScript 文件 -->
+script>
+<!-- Font Awesome CSS-->
+all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+<!-- Google fonts - Popppins for copy-->
+css?family=Poppins:300,400,800">
+<!-- orion icons-->
+orionicons.css">
+<!-- theme stylesheet-->
+style.green.css" id="theme-stylesheet">
+<!-- Custom stylesheet - for your changes-->
+custom.css">
+<!-- Favicon-->
+  Created by IntelliJ IDEA.
+  User: xiaole
+11
+  Time: 9:23 下午
+  To change this template use File | Settings | File Templates.
+html;charset=UTF-8" language="java" %>
+core" prefix="c" %>
+    response.setCharacterEncoding("utf-8");
+ 现在存在有session属性
+title>
+    <style>
+style>
+>
+<div class="col-lg-12 mb-4" style="margin: 0 auto;">
+    <div class="card">
+        <div class="card-header">
+h4>
+CallSearchInventoryServlet" method="get">
+                <div class="input-group" style="width: 500px; float: left">
+                    <input type="text" placeholder="搜索商品名称关键字" name="keyword" class="form-control" value="${keyword}">
+                    <div class="input-group-append">
+button>
+div>
+div>
+form>
+            <div class="input-group-append" style="float: right;">
+button>
+div>
+div>
+        <c:if test="${not empty iList}">
+        <div class="card-body">
+            <table class="table table-striped table-hover card-text" style="text-align: center">
+                <thead>
+                <tr>
+th>
+th>
+th>
+th>
+th>
+th>
+tr>
+thead>
+                <tbody>
+                    <c:forEach items="${iList}" var="inventory" varStatus="vs">
+                        <tr>
+th>
+td>
+td>
+td>
+td>
+                            <td>
+button>
+button>
+td>
+tr>
+c:forEach>
+tbody>
+table>
+div>
+        <c:if test="${allRecorders>0 && allRecorders !=1}">
+            <ul class="pagination" style="color: green ;margin-left: 50px">
+li>
+8 + 1}" varStatus="vs">
+li>
+c:forEach>
+li>
+ul>
+c:if>
+c:if>
+        <c:if test="${empty iList}">
+span>
+c:if>
+div>
+div>
+<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" style="margin-top: 100px; min-width: 300px">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+button>
+div>
+            <div class="modal-body">
+                <div class="input-group" style="width: 400px; float: left">
+button>
+入库数量（件）">
+button>
+div>
+div>
+            <div class="modal-footer">
+button>
+button>
+button>--%>
+div>
+div>
+div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="margin-top: 100px; min-width: 300px">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+button>
+div>
+            <div class="modal-body">
+                <div class="form-group">
+label>
+                    <input type="text" class="form-control" id="gid" placeholder="商品ID">
+div>
+                <div class="form-group">
+label>
+                    <input type="text" class="form-control" id="gname" placeholder="供应商ID">
+div>
+                <div class="form-group">
+label>
+                    <input type="text" class="form-control" id="gtype" placeholder="商品进价">
+div>
+                <div class="form-group">
+label>
+                    <input type="text" class="form-control" id="inprice" placeholder="数量">
+div>
+div>
+            <div class="modal-footer">
+button>
+button>
+button>--%>
+div>
+div>
+div>
+    <%--    定义请求链接--%>
+<%--    出库--%>
+    function div_data(data) {
+        var flag = confirm("您确定出库吗？")
+        $("#myModalLabel1").text("出库");
+        $('#myModal1').modal({backdrop: 'static'});
+ if (flag) {
+     $.get( "", {
+     },function (res) {
+         if (res == "true") {
+             alert("出库成功！")
+             window.location.reload();
+         } else {
+             alert("出库失败！")
+         }
+     })
+ }
+    }
+    var div_el = document.querySelector(".modal-body");
+ 入库
+    var inputs = div_el.querySelectorAll('input');
+    function add_data(data){
+        $("#myModalLabel1").text("入库");
+        $('#myModal1').modal({backdrop: 'static'});
+    }
+    $('#btn_submit1').click(function(){
+        var gid = $("#gid").val();
+        var gname = $("#gname").val();
+        var gtype = $("#gtype").val();
+        var inprice = $("#inprice").val();
+        var outprice = $("#outprice").val();
+        var status = $("#status").val();
+        for (let i = 0; i < inputs.length; i++) {
+            if (inputs[i].value.length==0) {
+                alert("信息不全！")
+            }
+        }
+CallDoEditGoodsServlet", {
+            "gid":gid,
+            "gname":gname,
+            "gtype":gtype,
+            "inprice":inprice,
+            "outprice":outprice,
+            "status":status
+        },
+            function (res) {
+                if (res == "true") {
+                    alert("修改成功!")
+                    window.location.reload();
+                } else {
+                    alert("修改失败！")
+                }
+            })
+    })
+    function getUrlParam(name) {
+构造一个含有目标参数的正则表达式对象
+匹配目标参数
+返回参数值
+    }
+    $(function(){
+        $("#btn_add").click(function () {
+            for (let i = 0; i < inputs.length; i++) {
+                inputs[i].value = "";
+            }
+            $("#myModalLabel").text("添加");
+            $('#myModal').modal({backdrop: 'static'});
+        });
+        $(".search-sub").click(function(){
+取值
+            if (search == '') {
+                alert('请输入输入关键字！');
+            }
+        });
+ 这个里面 做 一个点击绑定一个点击事件 绑定了点击事件 然后 发送ajax
+        $('#btn_submit2').click(function(){
+            var gid = $("#gid").val();
+            var gname = $("#gname").val();
+            var gtype = $("#gtype").val();
+            var inprice = $("#inprice").val();
+            var outprice = $("#outprice").val();
+            var status = $("#status").val();
+CallDoAddGoodsServlet", {
+                "gid":gid,
+                "gname":gname,
+                "gtype":gtype,
+                "inprice":inprice,
+                "outprice":outprice,
+                "status":status
+            },
+                function (res) {
+                    if (res == "true") {
+                        alert("添加成功！")
+                        window.location.reload();
+                    } else if (res == "重复添加") {
+                        alert("添加失败，请勿重复添加！")
+                    }
+                    else {
+                        alert("数据信息不全！")
+                    }
+                })
+        })
+    })
+    var page = parseInt(getUrlParam('currentPage'));
+CallSearchInventoryServlet?currentPage=" + (page + 1).toString() + "&searchType=${searchType}&keyword=${keyword}";
+CallSearchInventoryServlet?currentPage=" + (page - 1).toString() + "&searchType=${searchType}&keyword=${keyword}";
+    $(function (){
+        if (page <= 1) {
+            $("#last_li").addClass("disabled");
+            $("#next_li").click(function (){
+                window.location.href = newAddHref;
+            })
+        } else if (!page) {
+            $("#last_li").addClass("disabled");
+            $("#next_li").addClass("disabled");
+8}) {
+            $("#next_li").addClass("disabled");
+            $("#last_li").click(function (){
+                window.location.href = newVerbHref;
+            })
+        } else {
+            $("#last_li").click(function (){
+                window.location.href = newVerbHref;
+            })
+            $("#next_li").click(function (){
+                window.location.href = newAddHref;
+            })
+        }
+    });
+>
+ 现在没有登录过
+login.jsp");
+    }
+  Created by IntelliJ IDEA.
+  User: xiaole
+10
+  Time: 9:26 上午
+  To change this template use File | Settings | File Templates.
+html;charset=UTF-8" language="java" %>
+core" prefix="c" %>
+ 现在存在有session属性
+title>
+    <style>
+style>
+>
+<div class="col-lg-12 mb-4" style="margin: 0 auto">
+    <div class="card">
+        <div class="card-header">
+h4>
+CallSearchGoodsServlet" method="get">
+                <div class="input-group" style="width: 500px; float: left">
+                    <select name="searchType" class="form-control" style="background: green ; color: white;max-width: 110px;">
+option>
+option>
+select>
+                <%--关键字搜索--%>
+                    <input type="text" placeholder="搜索关键字" name="keyword" class="form-control" value="${keyword}">
+                    <div class="input-group-append">
+button>
+div>
+div>
+form>
+            <div class="input-group-append" style="float: right;">
+button>
+div>
+div>
+        <c:if test="${not empty gList}">
+            <div class="card-body">
+                <table class="table table-striped table-hover card-text" style="text-align: center">
+                    <thead>
+                    <tr>
+th>
+th>
+th>
+th>
+th>
+th>
+th>
+tr>
+thead>
+                    <tbody>
+                    <c:forEach items="${gList}" var="goods" varStatus="vs">
+                        <tr>
+th>
+td>
+td>
+td>
+td>
+td>
+                            <td>
+button>
+button>
+td>
+tr>
+c:forEach>
+tbody>
+table>
+div>
+            <c:if test="${allRecorders>0 && allRecorders !=1}">
+                <ul class="pagination" style="color: green ;margin-left: 50px">
+li>
+8 + 1}" varStatus="vs">
+li>
+c:forEach>
+li>
+ul>
+c:if>
+c:if>
+        <c:if test="${empty gList}">
+span>
+c:if>
+div>
+div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="margin-top: 100px; min-width: 300px">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+button>
+div>
+            <div class="modal-body">
+                <div class="form-group">
+label>
+                    <input type="text" class="form-control" id="gid" placeholder="商品ID">
+div>
+                <div class="form-group">
+label>
+                    <input type="text" class="form-control" id="gname" placeholder="商品名称">
+div>
+                <div class="form-group">
+label>
+                    <input type="text" class="form-control" id="gtype" placeholder="商品类型">
+div>
+                <div class="form-group">
+label>
+                    <input type="text" class="form-control" id="inprice" placeholder="商品进价">
+div>
+                <div class="form-group">
+label>
+                    <input type="text" class="form-control" id="outprice" placeholder="商品出价">
+div>
+                <div class="form-group">
+                    <select id="status" name="searchType" class="form-control" style="background: green ; color: white;max-width: 210px;">
+option>
+option>
+select>
+div>
+div>
+            <div class="modal-footer">
+button>
+button>
+button>
+div>
+div>
+div>
+<%--    定义请求链接--%>
+    function del_data(data) {
+        var flag = confirm("您确定删除吗？")
+        if (flag) {
+CallDoDelGoodsServlet", {
+                "gid":data,
+            },function (res) {
+                if (res == "true") {
+                    Dreamer.success("成功删除1条数据！",1000,function(){
+                        window.location.reload();
+                    })
+                } else {
+                    Dreamer.error("删除失败！", 2000)
+                }
+            })
+        }
+    }
+    var div_el = document.querySelector(".modal-body");
+    var inputs = div_el.querySelectorAll('input');
+    function edit_data(data){
+        $("#btn_submit2").hide()
+        $("#btn_submit1").show()
+        var arr = data.split(":");
+        for (let i = 0; i < arr.length-1; i++) {
+            inputs[i].value = arr[i];
+        }
+        $("#myModalLabel").text("编辑");
+        $('#myModal').modal({backdrop: 'static'});
+    }
+    $('#btn_submit1').click(function(){
+        var gid = $("#gid").val();
+        var gname = $("#gname").val();
+        var gtype = $("#gtype").val();
+        var inprice = $("#inprice").val();
+        var outprice = $("#outprice").val();
+        var status = $("#status").val();
+        for (let i = 0; i < inputs.length; i++) {
+            if (inputs[i].value.length==0) {
+                Dreamer.error("信息不全！", 2000)
+            }
+        }
+CallDoEditGoodsServlet", {
+            "gid":gid,
+            "gname":gname,
+            "gtype":gtype,
+            "inprice":inprice,
+            "outprice":outprice,
+            "status":status
+        },
+        function (res) {
+            if (res == "true") {
+                Dreamer.success("成功修改1条数据！",1000,function(){
+                    window.location.reload();
+                })
+            } else {
+                Dreamer.error("修改失败！", 2000)
+            }
+        })
+    })
+    function getUrlParam(name) {
+构造一个含有目标参数的正则表达式对象
+匹配目标参数
+返回参数值
+    }
+    $(function(){
+        $("#btn_add").click(function () {
+            for (let i = 0; i < inputs.length; i++) {
+                inputs[i].value = "";
+            }
+            $("#btn_submit1").hide()
+            $("#btn_submit2").show()
+            $("#myModalLabel").text("添加");
+            $('#myModal').modal({backdrop: 'static'});
+        });
+        $(".search-sub").click(function(){
+取值
+            if (search == '') {
+                Dreamer.error("请输入输入关键字！", 2000)
+            }
+        });
+ 这个里面 做 一个点击绑定一个点击事件 绑定了点击事件 然后 发送ajax
+        $('#btn_submit2').click(function(){
+            var gid = $("#gid").val();
+            var gname = $("#gname").val();
+            var gtype = $("#gtype").val();
+            var inprice = $("#inprice").val();
+            var outprice = $("#outprice").val();
+            var status = $("#status").val();
+CallDoAddGoodsServlet", {
+                    "gid":gid,
+                    "gname":gname,
+                    "gtype":gtype,
+                    "inprice":inprice,
+                    "outprice":outprice,
+                    "status":status
+                },
+                function (res) {
+                if (res == "true") {
+                    Dreamer.success("成功添加1条数据！",1000,function(){
+                        window.location.reload();
+                    })
+                } else if (res == "重复添加") {
+                    Dreamer.error("添加失败，请勿重复添加！", 1000)
+                }
+                else {
+                    Dreamer.error("数据信息不全！", 1000)
+                }
+            })
+        })
+    })
+    var page = parseInt(getUrlParam('currentPage'));
+CallSearchGoodsServlet?currentPage=" + (page + 1).toString() + "&searchType=${searchType}&keyword=${keyword}";
+CallSearchGoodsServlet?currentPage=" + (page - 1).toString() + "&searchType=${searchType}&keyword=${keyword}";
+    $(function (){
+        if (page <= 1) {
+            $("#last_li").addClass("disabled");
+            $("#next_li").click(function (){
+                window.location.href = newAddHref;
+            })
+        } else if (!page) {
+            $("#last_li").addClass("disabled");
+            $("#next_li").addClass("disabled");
+8}) {
+            $("#next_li").addClass("disabled");
+            $("#last_li").click(function (){
+                window.location.href = newVerbHref;
+            })
+        } else {
+            $("#last_li").click(function (){
+                window.location.href = newVerbHref;
+            })
+            $("#next_li").click(function (){
+                window.location.href = newAddHref;
+            })
+        }
+    });
+>
+ 没有登录过,跳转登陆页面
+login.jsp");
+    }
+  Created by IntelliJ IDEA.
+  User: xiaole
+10
+  Time: 11:09 上午
+  To change this template use File | Settings | File Templates.
+  Created by IntelliJ IDEA.
+  User: xiaole
+7
+  Time: 12:41 上午
+  To change this template use File | Settings | File Templates.
+html;charset=UTF-8" language="java" %>
+ 现在存在有session属性
+<footer class="footer bg-white shadow align-self-end py-3 px-xl-5 w-100">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 text-center text-md-left text-primary">
+p>
+div>
+            <div class="col-md-11 text-center text-md-right text-gray-400">
+                <p style="text-align: center; color: #4b666d8f;">Copyright 2021 © .HUIXING FOOD GROUP. 陕西惠兴食品有限公司版权所有
+p>
+div>
+div>
+div>
+script>
+script>
+ 现在没有登录过
+login.jsp");
+    }
+  Created by IntelliJ IDEA.
+  User: xiaole
+  Time: 11:10 下午
+  To change this template use File | Settings | File Templates.
+html;charset=UTF-8" language="java" %>
+<% request.getSession().invalidate();%>
+login.jsp");%>
+
+package com.supsystem.servlet.user;
+import com.supsystem.bean.User;
+import com.supsystem.dao.UserImp;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.util.List;
+public class ShowUserServlet extends HttpServlet {
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+ 实力化Dao
+        UserImp impUser = new UserImp();
+ 搜索全部
+        List<User> uList = impUser.select(null,null);
+        req.setAttribute("uList", uList);
+userManage.jsp");
+        requestDispatcher.forward(req, resp);
+    }
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        super.doPost(req, resp);
+    }
+package com.supsystem.servlet.user;
+import com.supsystem.bean.User;
+import com.supsystem.dao.UserImp;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.Objects;
+public class DoEditUserServlet extends HttpServlet {
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setCharacterEncoding("utf-8");
+        resp.setCharacterEncoding("utf-8");
+        PrintWriter out = resp.getWriter();
+        String newPwd = req.getParameter("newPwd");
+        String uid = (String) req.getSession().getAttribute("uid");
+        User user = new User();
+        user.setPassword(newPwd);
+        UserImp impUser = new UserImp();
+        if (!Objects.equals(newPwd, "")) {
+            try {
+                if (impUser.update(user, uid) > 0) {
+                    out.write("true");
+                } else {
+                    out.write("false");
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    }
+package com.supsystem.servlet.supplier;
+import com.supsystem.bean.Supplier;
+import com.supsystem.dao.SupplierImp;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+public class SearchSupplierServlet extends HttpServlet {
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setCharacterEncoding("utf-8");
+        resp.setCharacterEncoding("utf-8");
+        try {
+            Map<String, Object> split = null;
+            int currentPage;
+            String searchType = "speople";
+            String keyword = req.getParameter("keyword");
+            String currentPages = req.getParameter("currentPage");
+            SupplierImp supplierImp = new SupplierImp();
+            if (currentPages == null) {
+                currentPage = 1;
+            } else {
+                currentPage = Integer.parseInt(currentPages);
+            }
+            if (searchType == null && currentPages == null) {
+                split = supplierImp.split(currentPage, 8, null, null);
+                req.setAttribute("currentPage", currentPage);
+            } else if (searchType != null && keyword != null) {
+                split = supplierImp.split(currentPage, 8, searchType, keyword);
+                req.setAttribute("currentPage", currentPage);
+                req.setAttribute("searchType", searchType);
+                req.setAttribute("keyword", keyword);
+            } else {
+                split = supplierImp.split(currentPage, 8, searchType, keyword);
+                req.setAttribute("currentPage", currentPage);
+                req.setAttribute("searchType", searchType);
+                req.setAttribute("keyword", keyword);
+            }
+            if (split != null) {
+                List<Supplier> sList = (ArrayList<Supplier>) split.get("allSupplier");
+                Long allRecorders = (Long) split.get("allRecorders");
+                req.setAttribute("sList", sList);
+                req.setAttribute("allRecorders", allRecorders);
+supplier.jsp");
+                requestDispatcher.forward(req, resp);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+package com.supsystem.servlet.inventory;
+import com.supsystem.bean.Inventory;
+import com.supsystem.dao.InventoryImp;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+public class SearchInventoryServlet extends HttpServlet {
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setCharacterEncoding("utf-8");
+        resp.setCharacterEncoding("utf-8");
+        try {
+            Map<String, Object> split = null;
+            int currentPage;
+            String searchType = "igname";
+            String keyword = req.getParameter("keyword");
+            String currentPages = req.getParameter("currentPage");
+            InventoryImp inventoryImp = new InventoryImp();
+            if (currentPages == null) {
+                currentPage = 1;
+            } else {
+                currentPage = Integer.parseInt(currentPages);
+            }
+            if (searchType == null && currentPages == null) {
+                split = inventoryImp.split(currentPage, 8, null, null);
+                req.setAttribute("currentPage", currentPage);
+            } else if (searchType != null && keyword != null) {
+                split = inventoryImp.split(currentPage, 8, searchType, keyword);
+                req.setAttribute("currentPage", currentPage);
+                req.setAttribute("searchType", searchType);
+                req.setAttribute("keyword", keyword);
+            } else {
+                split = inventoryImp.split(currentPage, 8, searchType, keyword);
+                req.setAttribute("currentPage", currentPage);
+                req.setAttribute("searchType", searchType);
+                req.setAttribute("keyword", keyword);
+            }
+            if (split != null) {
+                List<Inventory> iList = (ArrayList<Inventory>) split.get("allInventory");
+                Long allRecorders = (Long) split.get("allRecorders");
+                req.setAttribute("iList", iList);
+                req.setAttribute("allRecorders", allRecorders);
+stockManage.jsp");
+                requestDispatcher.forward(req, resp);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        super.doPost(req, resp);
+    }
+package com.supsystem.servlet;
+import com.supsystem.bean.User;
+import com.supsystem.dao.UserImp;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.List;
+public class LoginServlet extends HttpServlet {
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String username = req.getParameter("username");
+        String password = req.getParameter("password");
+        UserImp impUser = new UserImp();
+        List<User> uList = impUser.select(username, password);
+        PrintWriter out = resp.getWriter();
+        if (uList.size()>0) {
+            for (User list: uList) {
+                String user = list.getUsername();
+                String pass = list.getPassword();
+                String name = list.getName();
+                String sex = list.getSex();
+                String uid = list.getId();
+ 查询
+ 用户登录合法
+ 将当前的用户名保存在session属性范围之中，不管如何跳转，只要不关闭浏览器都可以获取该数据
+                    req.getSession().setAttribute("name", name);
+                    req.getSession().setAttribute("sex", sex);
+                    req.getSession().setAttribute("uid", uid);
+                    out.write("true");
+                }
+            }
+        } else {
+ 错误的用户名或密码
+            out.write("false");
+        }
+    }
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        super.doGet(req, resp);
+    }
+package com.supsystem.servlet.goods;
+import com.supsystem.dao.GoodsImp;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.SQLException;
+public class DoDelGoodsServlet extends HttpServlet {
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setCharacterEncoding("utf-8");
+        resp.setCharacterEncoding("utf-8");
+        String gid = req.getParameter("gid");
+        GoodsImp impGoods = new GoodsImp();
+        PrintWriter out = resp.getWriter();
+        try {
+            int res = impGoods.delete(gid);
+            if (res > 0) {
+                out.write("true");
+            } else {
+                out.write("false");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+package com.supsystem.servlet.goods;
+import com.supsystem.bean.Goods;
+import com.supsystem.dao.GoodsImp;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.SQLException;
+public class DoEditGoodsServlet extends HttpServlet {
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setCharacterEncoding("utf-8");
+        resp.setCharacterEncoding("utf-8");
+        PrintWriter out = resp.getWriter();
+        String gid = req.getParameter("gid");
+        String gname = req.getParameter("gname");
+        String gtype = req.getParameter("gtype");
+        String inprice = req.getParameter("inprice");
+        String outprice = req.getParameter("outprice");
+        String status = req.getParameter("status");
+        GoodsImp impGoods = new GoodsImp();
+        Goods goods = new Goods(gid, gname, gtype, Double.parseDouble(inprice), Double.parseDouble(outprice), Integer.parseInt(status));
+        try {
+            if (impGoods.update(goods, gid) > 0) {
+                out.write("true");
+            } else {
+                out.write("false");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+package com.supsystem.servlet.goods;
+import com.supsystem.bean.Goods;
+import com.supsystem.dao.GoodsImp;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+public class SearchGoodsServlet extends HttpServlet {
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setCharacterEncoding("utf-8");
+        resp.setCharacterEncoding("utf-8");
+        try {
+            String searchType = req.getParameter("searchType");
+            String keyword = req.getParameter("keyword");
+            String currentPages = req.getParameter("currentPage");
+            GoodsServiceImp goodsServiceImp = new GoodsServiceImp();
+            GoodsImp iGoods = new GoodsImp();
+            Map<String, Object> split = null;
+            int currentPage;
+            if (currentPages == null) {
+                currentPage = 1;
+            } else {
+                currentPage = Integer.parseInt(currentPages);
+            }
+            if (searchType == null && currentPages == null) {
+                split = iGoods.split(currentPage, 8, null, null);
+                req.setAttribute("currentPage", currentPage);
+            } else if (searchType != null && keyword != null) {
+                split = iGoods.split(currentPage, 8, searchType, keyword);
+                req.setAttribute("currentPage", currentPage);
+                req.setAttribute("searchType", searchType);
+                req.setAttribute("keyword", keyword);
+            } else {
+                split = iGoods.split(currentPage, 8, searchType, keyword);
+                req.setAttribute("currentPage", currentPage);
+                req.setAttribute("searchType", searchType);
+                req.setAttribute("keyword", keyword);
+            }
+            if (split != null) {
+                List<Goods> gList = (ArrayList<Goods>) split.get("allGoods");
+                Long allRecorders = (Long) split.get("allRecorders");
+                req.setAttribute("gList", gList);
+                req.setAttribute("allRecorders", allRecorders);
+goods.jsp");
+                requestDispatcher.forward(req, resp);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        super.doPost(req, resp);
+    }
+package com.supsystem.servlet.goods;
+import com.supsystem.bean.Goods;
+import com.supsystem.dao.GoodsImp;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+public class DoAddGoodsServlet extends HttpServlet {
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setCharacterEncoding("utf-8");
+        resp.setCharacterEncoding("utf-8");
+        GoodsImp goodsImp = new GoodsImp();
+        PrintWriter out = resp.getWriter();
+        String gid = req.getParameter("gid");
+        String gname = req.getParameter("gname");
+        String gtype = req.getParameter("gtype");
+        String inprice = req.getParameter("inprice");
+        String outprice = req.getParameter("outprice");
+        String status = req.getParameter("status");
+ 批量添加测试
+        if (!Objects.equals(gid, "") && !Objects.equals(gname, "") && !Objects.equals(gtype, "") && !Objects.equals(inprice, "") && !Objects.equals(outprice, "") && !Objects.equals(status, "")) {
+            List<Goods> list = new ArrayList<>();
+            Goods goods = new Goods(gid, gname, gtype, Double.parseDouble(inprice), Double.parseDouble(outprice), Integer.parseInt(status));
+            list.add(goods);
+            try {
+                goodsImp.addBatch(list);
+                out.write("true");
+            } catch (SQLException e) {
+                out.write("重复添加");
+            }
+        } else {
+            out.write("信息不全");
+        }
+    }
+package com.supsystem.util;
+public class PageUtil {
+默认当前页
+ 默认显示行
+ 模糊查询列
+    private String keyword;
+ column候选参数配置
+ 分页路径；
+    public Integer getCurrentPage() {
+        return currentPage;
+    }
+    public void setCurrentPage(Integer currentPage) {
+        this.currentPage = currentPage;
+    }
+    public Integer getLineSize() {
+        return lineSize;
+    }
+    public void setLineSize(Integer lineSize) {
+        this.lineSize = lineSize;
+    }
+    public String getColumn() {
+        return column;
+    }
+    public void setColumn(String column) {
+        this.column = column;
+    }
+    public String getKeyword() {
+        return keyword;
+    }
+    public void setKeyword(String keyword) {
+        this.keyword = keyword;
+    }
+    public String getColumnData() {
+        return columnData;
+    }
+    public void setColumnData(String columnData) {
+        this.columnData = columnData;
+    }
+    public String getUrl() {
+        return url;
+    }
+    public void setUrl(String url) {
+        this.url = url;
+    }
+package com.supsystem.util;
+import java.sql.*;
+public class JdbcUtil {
+SupSystem?useUnicode=true&characterEncoding=utf8";
+     final String USERNAME="root";
+     final String PASSWORD="111111";
+     PreparedStatement ps=null;
+     Connection con=null;
+将jar包driver加载到JVM中
+    static {
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+封装交通管道创建细节
+    public Connection getCon() {
+        try {
+            con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return con;
+    }
+创建statement对象
+    public PreparedStatement createStatement(String sql) {
+        try {
+            ps = getCon().prepareStatement(sql);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return ps;
+    }
+ PreparedStatement与Connection 销毁细节 insert，update，delete
+    public void close() {
+        if (ps != null){
+            try {
+                ps.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        if (con != null){
+            try {
+                con.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+销毁结果集重载
+    public void close(ResultSet rs) {
+        if (rs != null) {
+            try {
+                rs.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+package com.supsystem.bean;
+public class Goods {
+    private String gid;
+    private String gName;
+    private String gType;
+    private double gInPrice;
+    private double gOutPrice;
+    private int status;
+    public Goods() {
+    }
+    public Goods(String gid, String gName, String gType, double gInPrice, double gOutPrice, int status) {
+        this.gid = gid;
+        this.gName = gName;
+        this.gType = gType;
+        this.gInPrice = gInPrice;
+        this.gOutPrice = gOutPrice;
+        this.status = status;
+    }
+    public String getGid() {
+        return gid;
+    }
+    public void setGid(String gid) {
+        this.gid = gid;
+    }
+    public String getgName() {
+        return gName;
+    }
+    public void setgName(String gName) {
+        this.gName = gName;
+    }
+    public String getgType() {
+        return gType;
+    }
+    public void setgType(String gType) {
+        this.gType = gType;
+    }
+    public double getgInPrice() {
+        return gInPrice;
+    }
+    public void setgInPrice(double gInPrice) {
+        this.gInPrice = gInPrice;
+    }
+    public double getgOutPrice() {
+        return gOutPrice;
+    }
+    public void setgOutPrice(double gOutPrice) {
+        this.gOutPrice = gOutPrice;
+    }
+    public int getStatus() {
+        return status;
+    }
+    public void setStatus(int status) {
+        this.status = status;
+    }
+package com.supsystem.bean;
+public class Inventory {
+    private String iGid;
+    private String iSid;
+    private String igName;
+    private double igInPrice;
+    private double iSum;
+    public Inventory() {
+    }
+    public Inventory(String iGid, String iSid, String igName, double igInPrice, double iSum) {
+        this.iGid = iGid;
+        this.iSid = iSid;
+        this.igName = igName;
+        this.igInPrice = igInPrice;
+        this.iSum = iSum;
+    }
+    public String getiGid() {
+        return iGid;
+    }
+    public void setiGid(String iGid) {
+        this.iGid = iGid;
+    }
+    public String getiSid() {
+        return iSid;
+    }
+    public void setiSid(String iSid) {
+        this.iSid = iSid;
+    }
+    public String getIgName() {
+        return igName;
+    }
+    public void setIgName(String igName) {
+        this.igName = igName;
+    }
+    public double getIgInPrice() {
+        return igInPrice;
+    }
+    public void setIgInPrice(double igInPrice) {
+        this.igInPrice = igInPrice;
+    }
+    public double getiSum() {
+        return iSum;
+    }
+    public void setiSum(double iSum) {
+        this.iSum = iSum;
+    }
+package com.supsystem.bean;
+public class Supplier {
+    private String sId;
+    private String sName;
+    private String sPeople;
+    private String sPhone;
+    private String sTime;
+    public Supplier() {
+    }
+    public Supplier(String sId, String sName, String sPeople, String sPhone, String sTime) {
+        this.sId = sId;
+        this.sName = sName;
+        this.sPeople = sPeople;
+        this.sPhone = sPhone;
+        this.sTime = sTime;
+    }
+    public String getsId() {
+        return sId;
+    }
+    public void setsId(String sId) {
+        this.sId = sId;
+    }
+    public String getsName() {
+        return sName;
+    }
+    public void setsName(String sName) {
+        this.sName = sName;
+    }
+    public String getsPeople() {
+        return sPeople;
+    }
+    public void setsPeople(String sPeople) {
+        this.sPeople = sPeople;
+    }
+    public String getsPhone() {
+        return sPhone;
+    }
+    public void setsPhone(String sPhone) {
+        this.sPhone = sPhone;
+    }
+    public String getsTime() {
+        return sTime;
+    }
+    public void setsTime(String sTime) {
+        this.sTime = sTime;
+    }
+package com.supsystem.bean;
+public class User {
+    private String id;
+    private String name;
+    private String username;
+    private String password;
+    private String sex;
+    private String phone;
+    private String joinTime;
+    private int status;
+    public User() {}
+    public User(String password) {
+        this.password = password;
+    }
+    public User(String id, String name, String username, String password, String sex, String phone, String joinTime, int status) {
+        this.id = id;
+        this.name = name;
+        this.username = username;
+        this.password = password;
+        this.sex = sex;
+        this.phone = phone;
+        this.joinTime = joinTime;
+        this.status = status;
+    }
+    public String getId() {
+        return id;
+    }
+    public void setId(String id) {
+        this.id = id;
+    }
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public String getUsername() {
+        return username;
+    }
+    public void setUsername(String username) {
+        this.username = username;
+    }
+    public String getPassword() {
+        return password;
+    }
+    public void setPassword(String password) {
+        this.password = password;
+    }
+    public String getSex() {
+        return sex;
+    }
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+    public String getPhone() {
+        return phone;
+    }
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+    public String getJoinTime() {
+        return joinTime;
+    }
+    public void setJoinTime(String joinTime) {
+        this.joinTime = joinTime;
+    }
+    public int getStatus() {
+        return status;
+    }
+    public void setStatus(int status) {
+        this.status = status;
+    }
+package com.supsystem.dao;
+ 本系统
+import com.supsystem.bean.User;
+import com.supsystem.interfaces.IUser;
+import com.supsystem.util.JdbcUtil;
+ java
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+public class UserImp implements IUser {
+ JDBC工具
+    JdbcUtil db = new JdbcUtil();
+    PreparedStatement ps = null;
+    List<User> list = new ArrayList<>();
+    ResultSet rs = null;
+    @Override
+    public int insert(User user) throws SQLException {
+        return 0;
+    }
+ 判断不同的查询方法，全查寻与条件查询
+    @Override
+    public List<User> select(String uName, String uPassword) {
+        try {
+            if (uName != null && uPassword != null) {
+ 带参数查询
+                String sql = "select * from user where username=? and password=?";
+                ps = db.createStatement(sql);
+                try {
+                    ps.setString(1, uName);
+                    ps.setString(2, uPassword);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            } else {
+ 不带参数查询
+                String sql = "select * from user";
+                ps = db.createStatement(sql);
+            }
+            rs = ps.executeQuery();
+            if (rs != null) {
+                while (rs.next()) {
+                    String id = rs.getString(1);
+                    String name = rs.getString(2);
+                    String username = rs.getString(3);
+                    String password = rs.getString(4);
+                    String sex = rs.getString(5);
+                    String phone = rs.getString(6);
+                    String joinTime = rs.getString(7);
+                    int status = rs.getInt(8);
+                    User user = new User(id, name,username, password, sex, phone, joinTime, status);
+                    list.add(user);
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            db.close(rs);
+        }
+        return list;
+    }
+    @Override
+    public int delete(String sno) {
+        return 0;
+    }
+    @Override
+    public int update(User user, String key) throws SQLException {
+        String sql = "UPDATE user SET password = ? where userid=?";
+        ps = db.createStatement(sql);
+        ps.setString(1, user.getPassword());
+        ps.setString(2, key);
+        return ps.executeUpdate();
+    }
+package com.supsystem.dao;
+import com.supsystem.bean.Goods;
+import com.supsystem.dao.abs.AbstractDAO;
+import com.supsystem.interfaces.IGoods;
+import com.supsystem.util.JdbcUtil;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+public class GoodsImp extends AbstractDAO implements IGoods {
+ JDBC工具
+    JdbcUtil db = new JdbcUtil();
+    List<Goods> list = new ArrayList<>();
+    ResultSet rs = null;
+ 添加操作
+    @Override
+    public boolean insert(Goods goods) throws SQLException {
+        String sql = "insert into goods values(?,?,?,?,?,?)";
+        super.ps = super.conn.prepareStatement(sql);
+        super.ps.setString(1, goods.getGid());
+        super.ps.setString(2, goods.getgName());
+        super.ps.setString(3, goods.getgType());
+        super.ps.setDouble(4, goods.getgInPrice());
+        super.ps.setDouble(5, goods.getgOutPrice());
+        super.ps.setInt(6, goods.getStatus());
+        return super.ps.executeUpdate() > 0;
+    }
+**
+     * 提取出返回结果集的方法，用于复用
+     * @param rs 结果集
+     * @throws SQLException SQl异常
+
+    public void results(ResultSet rs) throws SQLException {
+        if (rs != null) {
+            while (rs.next()) {
+                String gid = rs.getString(1);
+                String gname = rs.getString(2);
+                String gtyoe = rs.getString(3);
+                double ginprice = rs.getDouble(4);
+                double goutprice = rs.getDouble(5);
+                int status = rs.getInt(6);
+                Goods goods = new Goods(gid, gname,gtyoe, ginprice, goutprice, status);
+                list.add(goods);
+            }
+        } else {
+            System.out.println("未查到");
+        }
+    }
+**
+     * 无搜索条件分页
+     * @param currenPage 页数
+     * @param lineSize 一页显示数据量
+     * @return 返回结果集
+     * @throws SQLException SQl异常
+
+    @Override
+    public List<Goods> findSplit(Integer currenPage, Integer lineSize) throws SQLException {
+        String sql="select * from goods limit ?,?";
+        try {
+            ps = db.createStatement(sql);
+            ps.setInt(1, (currenPage - 1) * lineSize);
+            ps.setInt(2, lineSize);
+            rs = ps.executeQuery();
+            results(rs);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+**
+     * 有搜索条件分页
+     * @param currenPage 页数
+     * @param lineSize 一页显示数据量
+     * @param column 搜索类型条件
+     * @param keyword 搜索关键字条件
+     * @return 返回结果集
+     * @throws SQLException SQL异常
+
+    @Override
+    public List<Goods> findSplit(Integer currenPage, Integer lineSize, String column, String keyword) throws SQLException {
+        String sql="select * from goods where "+column+" like ? limit ?,?";
+        try {
+            ps = db.createStatement(sql);
+            ps.setString(1, "%"+keyword+"%");
+            ps.setInt(2, (currenPage - 1) * lineSize);
+            ps.setInt(3, lineSize);
+            rs = ps.executeQuery();
+            results(rs);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+**
+     * 批量添加操作
+     * @param goods 上屏bean对象
+     * @return 返回处理结果
+     * @throws SQLException SQL异常
+
+    @Override
+    public boolean addBatch(List<Goods> goods) throws SQLException {
+        for (Goods good : goods) {
+ 数据存储
+        }
+        return true;
+    }
+**
+     * 根据不同搜索条件
+     * @param currentPage 页数
+     * @param lineSize 一夜显示数
+     * @param column 搜索类型条件
+     * @param keyword 搜索关键字条件
+     * @return 结果集将页数与查询结果对象（List）一起放入Map中
+     * @throws Exception 异常父类
+
+    @Override
+    public Map<String, Object> split(int currentPage, int lineSize, String column, String keyword) throws Exception {
+        Map<String, Object> result = new HashMap<>();
+ 如果数据为空返回false
+            result.put("allGoods", this.findSplit(currentPage, lineSize, column, keyword));
+            result.put("allRecorders", this.getAllCount(column, keyword));
+        } else {
+            result.put("allGoods", this.findSplit(currentPage, lineSize));
+            result.put("allRecorders", this.getAllCount());
+        }
+        return result;
+    }
+ 不按条件获取商品数据所有行数
+    public Long getAllCount () throws SQLException {
+        return super.countHandle("goods");
+    }
+ 按条件获取商品所有行数
+    public Long getAllCount (String column, String keyword) throws SQLException {
+        return super.countHandle("goods", column, keyword);
+    }
+ 删除商品
+    @Override
+    public int delete(String gId) throws SQLException {
+        return super.delHandle("goods", "gid", gId);
+    }
+ 修改商品
+    @Override
+    public int update(Goods goods, String gId) throws SQLException {
+        String sql = "UPDATE goods SET gid=?, gname=?, gtype=?, ginprice=?, goutprice=?, gstatus=? WHERE gid=?";
+        ps = db.createStatement(sql);
+        ps.setString(1, goods.getGid());
+        ps.setString(2, goods.getgName());
+        ps.setString(3, goods.getgType());
+        ps.setDouble(4, goods.getgInPrice());
+        ps.setDouble(5, goods.getgOutPrice());
+        ps.setDouble(6, goods.getStatus());
+        ps.setString(7, gId);
+        return ps.executeUpdate();
+    }
+package com.supsystem.dao;
+import com.supsystem.bean.Inventory;
+import com.supsystem.dao.abs.AbstractDAO;
+import com.supsystem.interfaces.IInventory;
+import com.supsystem.util.JdbcUtil;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+public class InventoryImp extends AbstractDAO implements IInventory {
+    JdbcUtil db = new JdbcUtil();
+    List<Inventory> list = new ArrayList<>();
+    ResultSet rs = null;
+    @Override
+    public boolean insert(Inventory inventory) throws SQLException {
+        String sql = "insert into inventory values(?,?,?,?,?)";
+        super.ps = super.conn.prepareStatement(sql);
+        super.ps.setString(1, inventory.getiGid());
+        super.ps.setString(2, inventory.getiSid());
+        super.ps.setString(3, inventory.getIgName());
+        super.ps.setDouble(4, inventory.getIgInPrice());
+        super.ps.setDouble(5, inventory.getiSum());
+        return super.ps.executeUpdate() > 0;
+    }
+    @Override
+    public boolean addBatch(List<Inventory> inventories ) throws SQLException {
+        for (Inventory inventory : inventories) {
+ 数据存储
+        }
+        return true;
+    }
+    @Override
+    public int delete(String igId) throws SQLException {
+        return super.delHandle("inventory", "gid", igId);
+        return 0;
+    }
+    @Override
+    public int update(Inventory inventory, String igId) throws SQLException {
+        return 0;
+    }
+ 返回结果集的方法，提取出来便于在分页查询中复用
+    public void results(ResultSet rs) throws SQLException {
+        if (rs != null) {
+            while (rs.next()) {
+                String igId = rs.getString(1);
+                String isId = rs.getString(2);
+                String igName = rs.getString(3);
+                double igInPrice = rs.getDouble(4);
+                int iSum = rs.getInt(5);
+                Inventory inventory = new Inventory(igId, isId, igName, igInPrice, iSum);
+                list.add(inventory);
+            }
+        } else {
+            System.out.println("未查到");
+        }
+    }
+    @Override
+    public List<Inventory> findSplit(Integer currenPage, Integer lineSize) throws SQLException {
+        String sql="select * from inventory limit ?,?";
+        try {
+            ps = db.createStatement(sql);
+            ps.setInt(1, (currenPage - 1) * lineSize);
+            ps.setInt(2, lineSize);
+            rs = ps.executeQuery();
+            results(rs);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+    @Override
+    public List<Inventory> findSplit(Integer currenPage, Integer lineSize, String column, String keyword) throws SQLException {
+        String sql="select * from inventory where "+column+" like ? limit ?,?";
+        try {
+            ps = db.createStatement(sql);
+            ps.setString(1, "%"+keyword+"%");
+            ps.setInt(2, (currenPage - 1) * lineSize);
+            ps.setInt(3, lineSize);
+            rs = ps.executeQuery();
+            results(rs);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+    public Long getAllCount () throws SQLException {
+        return super.countHandle("inventory");
+    }
+    public Long getAllCount (String column, String keyword) throws SQLException {
+        return super.countHandle("inventory", column, keyword);
+    }
+    @Override
+    public Map<String, Object> split(int currentPage, int lineSize, String column, String keyword) throws Exception {
+        Map<String, Object> result = new HashMap<>();
+ 如果数据为空返回false
+            result.put("allInventory", this.findSplit(currentPage, lineSize, column, keyword));
+            result.put("allRecorders", this.getAllCount(column, keyword));
+        } else {
+            result.put("allInventory", this.findSplit(currentPage, lineSize));
+            result.put("allRecorders", this.getAllCount());
+        }
+        return result;
+    }
+package com.supsystem.dao;
+import com.supsystem.bean.Supplier;
+import com.supsystem.dao.abs.AbstractDAO;
+import com.supsystem.interfaces.ISupplier;
+import com.supsystem.util.JdbcUtil;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+public class SupplierImp extends AbstractDAO implements ISupplier {
+    JdbcUtil db = new JdbcUtil();
+    List<Supplier> list = new ArrayList<>();
+    ResultSet rs = null;
+    @Override
+    public boolean insert(Supplier supplier) throws SQLException {
+        String sql = "insert into supplier values(?,?,?,?,?)";
+        super.ps = super.conn.prepareStatement(sql);
+        super.ps.setString(1, supplier.getsId());
+        super.ps.setString(2, supplier.getsName());
+        super.ps.setString(3, supplier.getsPeople());
+        super.ps.setString(4, supplier.getsPhone());
+        super.ps.setString(5, supplier.getsTime());
+        return super.ps.executeUpdate() > 0;
+    }
+    @Override
+    public int delete(String sId) throws SQLException {
+        return 0;
+    }
+    @Override
+    public int update(Supplier supplier, String sId) throws SQLException {
+        return 0;
+    }
+ 返回结果集的方法，提取出来便于在分页查询中复用
+    public void results(ResultSet rs) throws SQLException {
+        if (rs != null) {
+            while (rs.next()) {
+                String sId = rs.getString(1);
+                String sName = rs.getString(2);
+                String sPeople = rs.getString(3);
+                String sPhone = rs.getString(4);
+                String sTime = rs.getString(5);
+                Supplier supplier = new Supplier(sId, sName, sPeople, sPhone, sTime);
+                list.add(supplier);
+            }
+        } else {
+            System.out.println("未查到");
+        }
+    }
+    @Override
+    public List<Supplier> findSplit(Integer currenPage, Integer lineSize) throws SQLException {
+        String sql="select * from supplier limit ?,?";
+        try {
+            ps = db.createStatement(sql);
+            ps.setInt(1, (currenPage - 1) * lineSize);
+            ps.setInt(2, lineSize);
+            rs = ps.executeQuery();
+            results(rs);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+    @Override
+    public List<Supplier> findSplit(Integer currenPage, Integer lineSize, String column, String keyword) throws SQLException {
+        String sql="select * from supplier where "+column+" like ? limit ?,?";
+        try {
+            ps = db.createStatement(sql);
+            ps.setString(1, "%"+keyword+"%");
+            ps.setInt(2, (currenPage - 1) * lineSize);
+            ps.setInt(3, lineSize);
+            rs = ps.executeQuery();
+            results(rs);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+    @Override
+    public boolean addBatch(List<Supplier> suppliers) throws SQLException {
+        for (Supplier supplier : suppliers) {
+ 数据存储
+        }
+        return true;
+    }
+    public Long getAllCount () throws SQLException {
+        return super.countHandle("supplier");
+    }
+    public Long getAllCount (String column, String keyword) throws SQLException {
+        return super.countHandle("supplier", column, keyword);
+    }
+    @Override
+    public Map<String, Object> split(int currentPage, int lineSize, String column, String keyword) throws Exception {
+        Map<String, Object> result = new HashMap<>();
+ 如果数据为空返回false
+            result.put("allSupplier", this.findSplit(currentPage, lineSize, column, keyword));
+            result.put("allRecorders", this.getAllCount(column, keyword));
+        } else {
+            result.put("allSupplier", this.findSplit(currentPage, lineSize));
+            result.put("allRecorders", this.getAllCount());
+        }
+        return result;
+    }
+package com.supsystem.dao.abs;
+import com.supsystem.util.JdbcUtil;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+public abstract class AbstractDAO {
+    protected PreparedStatement ps;
+    protected Connection conn;
+ 实例化util
+    JdbcUtil util = new JdbcUtil();
+ 获取连接
+    public AbstractDAO () {this.conn = util.getCon();}
+**
+     * 搜索一个表数据行数
+     * @param tableName 按表名称查询
+     * @return 统计表数据行数
+     * @throws SQLException SQL异常
+
+    public Long countHandle (String tableName) throws SQLException {
+        String sql = "select count(*) from " +tableName;
+        this.ps = this.conn.prepareStatement(sql);
+        ResultSet rs = this.ps.executeQuery();
+        if (rs.next()) {
+            return rs.getLong(1);
+        }
+        return 0L;
+    }
+**
+     * 按条件统计一个表数据行数
+     * @param tableName 表名称条件
+     * @param column 搜字段条件
+     * @param keyword 关键字条件
+     * @return 统计表数据行数
+     * @throws SQLException SQl异常
+
+    public Long countHandle (String tableName, String column, String keyword) throws SQLException {
+        String sql = "select count(*) from " +tableName + " where " + column + " like ?" ;
+        this.ps = this.conn.prepareStatement(sql);
+        this.ps.setString(1, "%" +keyword +"%");
+        ResultSet rs = this.ps.executeQuery();
+        if (rs.next()) {
+            return rs.getLong(1);
+        }
+        return 0L;
+    }
+**
+     * 处理删除数据
+     * @param tableName 表名条件
+     * @param primaryKey 主键条件
+     * @param target 删除目标
+     * @return 返回处理结果（int）影响行数
+     * @throws SQLException SQl异常
+
+    public int delHandle(String tableName, String primaryKey, String target) throws SQLException {
+        String sql = "delete from " +tableName+ " where " + primaryKey + "=?";
+        this.ps = this.conn.prepareStatement(sql);
+        this.ps.setString(1, target);
+        return this.ps.executeUpdate();
+    }
+**
+     * 检查搜索是否为空
+     * @param params n个参数
+false）
+
+    public boolean checkEmpty(String ... params) {
+        for (String param : params) {
+            if (param == null || "".equals(param)) {
+                return false;
+            }
+        }
+        return true;
+    }
+package com.supsystem.interfaces;
+import com.supsystem.bean.Supplier;
+import java.sql.SQLException;
+import java.util.List;
+import java.util.Map;
+public interface ISupplier {
+    public boolean insert(Supplier supplier) throws SQLException;
+    public int delete(String sId) throws SQLException;
+    public int update(Supplier supplier, String sId) throws SQLException;
+    public List<Supplier> findSplit(Integer currenPage, Integer lineSize) throws SQLException;
+    public List<Supplier> findSplit(Integer currenPage, Integer lineSize, String column, String keyword) throws SQLException;
+    public boolean addBatch(List<Supplier> suppliers) throws SQLException;
+ 分页
+    public Map<String, Object> split(int currentPage, int lineSize, String column, String keyword) throws Exception;
+package com.supsystem.interfaces;
+import com.supsystem.bean.Goods;
+import java.sql.SQLException;
+import java.util.List;
+import java.util.Map;
+public interface IGoods {
+    public boolean insert(Goods goods) throws SQLException;
+    public int delete(String gId) throws SQLException;
+    public int update(Goods goods, String gId) throws SQLException;
+    public List<Goods> findSplit(Integer currenPage, Integer lineSize) throws SQLException;
+    public List<Goods> findSplit(Integer currenPage, Integer lineSize, String column, String keyword) throws SQLException;
+    public boolean addBatch(List<Goods> goods) throws SQLException;
+    public Map<String, Object> split(int currentPage, int lineSize, String column, String keyword) throws Exception;
+package com.supsystem.interfaces;
+import com.supsystem.bean.User;
+import java.sql.SQLException;
+import java.util.List;
+public interface IUser {
+    public int insert(User user) throws SQLException;
+    public List<User> select(String user, String pass);
+    public int delete(String userid);
+    public int update(User user, String key) throws SQLException;
+package com.supsystem.interfaces;
+import com.supsystem.bean.Inventory;
+import java.sql.SQLException;
+import java.util.List;
+import java.util.Map;
+public interface IInventory {
+    public boolean insert(Inventory inventory) throws SQLException;
+    public int delete(String igId) throws SQLException;
+    public int update(Inventory inventory, String igId) throws SQLException;
+    public List<Inventory> findSplit(Integer currenPage, Integer lineSize) throws SQLException;
+    public List<Inventory> findSplit(Integer currenPage, Integer lineSize, String column, String keyword) throws SQLException;
+    public Map<String, Object> split(int currentPage, int lineSize, String column, String keyword) throws Exception;
+    public boolean addBatch(List<Inventory> inventories) throws SQLException;
