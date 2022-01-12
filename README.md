@@ -8,7 +8,7 @@ html + css + javascript + jquery + ajax + bootstrap + Font Awesome 图标 + java
 
 ####  项目预览
 
-http://admin.xiaole.website （默认账号密码admin）
+http://admin.xiaole.website:8888 （默认账号密码admin）
 
 #### 说明
 
