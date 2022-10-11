@@ -378,7 +378,7 @@ CREATE TABLE `user` (
 -- ----------------------------
 BEGIN;
 INSERT INTO `user` VALUES ('s0001', '管理员', 'admin', 'admin', '男', '18329503312', '2021-12-09 16:13:14', 1);
-INSERT INTO `user` VALUES ('s0002', '张倩倩', 'zqq', 'zqq', '女', '18023456789', '2021-12-09 17:39:12', 1);
+INSERT INTO `user` VALUES ('s0002', 'zqq', 'zqq', 'zqq', '女', '18023456789', '2021-12-09 17:39:12', 1);
 INSERT INTO `user` VALUES ('s0003', 'Test', '12345678', '123456', '男', '12345678910', '2021-12-13 20:45:42', 1);
 COMMIT;
 
